@@ -263,3 +263,11 @@ nav .content .links{
   font-size: 45px;
   margin: 5px 0;
 }
+
+
+
+.content img{
+  height: 65px;
+  position: relative;
+  top: 5px;
+}
