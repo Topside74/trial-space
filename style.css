@@ -306,3 +306,31 @@ nav .content .links{
   font-size: 20px;
 }
 
+.heading .subs{
+  font-size: 15px;
+}
+
+.frames .one{
+  height: 9rem;
+  border-radius: 10px;
+  position: relative;
+  top: 100px;
+  right: -320px;
+
+}
+
+.frames .two{
+  height: 25rem;
+    border-radius: 10px;
+    position: absolute;
+    top: 150px;
+    right: 100px;
+
+}
+
+.frames .three{
+  height: 9rem;
+    border-radius: 10px;
+
+}
+
