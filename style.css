@@ -5,6 +5,7 @@
   box-sizing: border-box;
   text-decoration: none;
   font-family: 'Poppins', sans-serif;
+  outline: none;
 }
 .wrapper{
   background-color: #fff;
@@ -34,6 +35,10 @@ nav .content .links{
   color: #333;
   font-size: 30px;
   font-weight: 600;
+}
+.links{
+  position: absolute;
+  right: 10px;
 }
 .content .links li{
   list-style: none;
@@ -264,10 +269,15 @@ nav .content .links{
   margin: 5px 0;
 }
 
-
-
 .content img{
   height: 65px;
   position: relative;
   top: 5px;
+}
+
+
+.content .logoahia{
+  height: 55px;
+  position: relative;
+  left: -10px;
 }
