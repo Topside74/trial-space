@@ -287,6 +287,7 @@ nav .content .links{
   height: 100vh;
   background-color: wheat;
   display: flex;
+  overflow: hidden;
 }
 
 .left{
@@ -310,28 +311,37 @@ nav .content .links{
   font-size: 15px;
 }
 
-.frames .one{
-  height: 9rem;
-  border-radius: 10px;
-  position: relative;
+.collageimg{
+  height: 27rem;
+
+}
+
+.huda{
+  box-shadow: 3px 3px 5px rgb(0,0,0,0.1);
+  position: absolute;
+  height: 10rem;
+  border-radius: 20px;
   top: 100px;
-  right: -320px;
-
+  right: 120px;
+}
+.ahia{
+  position: absolute;
+  height: 5rem;
+  border-radius: 10px;
+  top: 350px;
+  right: 200px;
 }
 
-.frames .two{
+.imgco{
   height: 25rem;
-    border-radius: 10px;
-    position: absolute;
-    top: 150px;
-    right: 100px;
-
-}
-
-.frames .three{
-  height: 9rem;
-    border-radius: 10px;
-
+  width: 25rem;
+  background-color: #fff;
+  box-shadow: 3px 3px 5px rgb(0,0,0,0.1);
+  position: absolute;
+  border-radius: 20px;
+  overflow: hidden;
+  top: 170px;
+  right: 150px;
 }
 
 
@@ -388,9 +398,31 @@ nav .content .links{
   height: 3rem;
 }
 
+.icoons{
+  position: relative;
+  gap: 40px;
+}
 
+.icoons i{
+  color: #000;
+  border: 2px solid #000;
+  height: 40px;
+  width: 40px;
+  padding: 10px;
+  border-radius: 50px;
+  text-align: center;
+}
 
-
+.fa-instagram{
+  color: #fff;
+  background: ;
+  border: 2px solid #000;
+  height: 40px;
+  width: 40px;
+  padding: 10px;
+  border-radius: 50px;
+  text-align: center;
+}
 
 
 
