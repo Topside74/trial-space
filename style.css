@@ -334,3 +334,61 @@ nav .content .links{
 
 }
 
+
+.counters{
+  display: flex;
+}
+
+
+.counter-wrapper {
+    width: 32%;
+    height: 9rem;
+    
+    border-radius: 1rem;
+    padding: 1rem 2rem;
+    
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    transition: .3s ease-in-out;
+
+}
+
+
+
+.counter-icon {
+  font-size: 2.5rem;
+  font-family: "Archivo", sans-serif;
+  
+
+}
+
+.counter-info {
+    color: #000;
+    text-shadow: 1px 1px 1px #0007;
+}
+
+.counter-info h1.counter {
+    font: normal 2.8rem ;
+  font-family: "Archivo", sans-serif;
+    letter-spacing: 4px;
+}
+
+.counter-info p {
+    font: normal 1.1rem sans-serif;
+    margin-top: .4rem;
+  font-family: "Archivo", sans-serif;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
