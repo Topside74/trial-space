@@ -337,6 +337,7 @@ nav .content .links{
 
 .counters{
   display: flex;
+  gap: 30px;
 }
 
 
@@ -379,6 +380,10 @@ nav .content .links{
     margin-top: .4rem;
   font-family: "Archivo", sans-serif;
 
+}
+
+.icono{
+  height: 3rem;
 }
 
 
