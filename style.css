@@ -12,6 +12,8 @@
   box-shadow: 3px 3px 5px rgb(0,0,0,0.1);
   position: fixed;
   width: 100%;
+  z-index: 999;  
+
 }
 .wrapper nav{
   position: relative;
@@ -21,7 +23,6 @@
   height: 70px;
   align-items: center;
   justify-content: space-between;
-  
 }
 nav .content{
   display: flex;
@@ -281,3 +282,27 @@ nav .content .links{
   position: relative;
   left: -10px;
 }
+
+.secone{
+  height: 100vh;
+  background-color: wheat;
+  display: flex;
+}
+
+.left{
+  position: relative;
+  top: 250px;
+  left: 50px;
+  margin-bottom: 250px;
+}
+
+.heading{
+  color: #171c24;
+  line-height: 1;
+  font-size: 2.5rem;
+}
+
+.heading p{
+  font-size: 20px;
+}
+
