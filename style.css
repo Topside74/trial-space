@@ -338,6 +338,8 @@ nav .content .links{
 .counters{
   display: flex;
   gap: 30px;
+  position: relative;
+  left: -40px;
 }
 
 
