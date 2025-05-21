@@ -8,4 +8,17 @@
 .contact{
     height: 54vh;
     width: 50vh;
+    background-color: lightblue;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-areas: login;
+}
+.login{
+    grid-area: login;
+    background-color: lightcoral;
+    display: none;
+}
+.design{
+    grid-area: design;
+    background-color: lightgoldenrodyellow;
 }
