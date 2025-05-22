@@ -44,6 +44,7 @@ nav .content .links{
 .content .links li{
   list-style: none;
   line-height: 70px;
+
 }
 .content .links li a,
 .content .links li label{
@@ -51,9 +52,10 @@ nav .content .links{
   font-size: 18px;
   font-weight: 500;
   padding: 9px 17px;
-  border-radius: 5px;
   transition: all 0.3s ease;
+  border-right: 2px solid #000;
 }
+
 .content .links li label{
   display: none;
 }
@@ -343,57 +345,6 @@ nav .content .links{
   top: 170px;
   right: 150px;
 }
-
-
-.counters{
-  display: flex;
-  gap: 30px;
-  position: relative;
-  left: -40px;
-}
-
-
-.counter-wrapper {
-    width: 32%;
-    height: 9rem;
-    
-    border-radius: 1rem;
-    padding: 1rem 2rem;
-    
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-    transition: .3s ease-in-out;
-
-}
-
-
-
-.counter-icon {
-  font-size: 2.5rem;
-  font-family: "Archivo", sans-serif;
-  
-
-}
-
-.counter-info {
-    color: #000;
-    text-shadow: 1px 1px 1px #0007;
-}
-
-.counter-info h1.counter {
-    font: normal 2.8rem ;
-  font-family: "Archivo", sans-serif;
-    letter-spacing: 4px;
-}
-
-.counter-info p {
-    font: normal 1.1rem sans-serif;
-    margin-top: .4rem;
-  font-family: "Archivo", sans-serif;
-
-}
-
 .icono{
   height: 3rem;
 }
@@ -404,25 +355,31 @@ nav .content .links{
 }
 
 .icoons i{
-  color: #000;
-  border: 2px solid #000;
-  height: 40px;
-  width: 40px;
-  padding: 10px;
-  border-radius: 50px;
-  text-align: center;
+    border: 2px solid #000;
+    height: 40px;
+    width: 40px;
+    border-radius: 30px;
+    padding: 10px;
+    text-align: center;
+    transition: 0.6s ease;
+    color: #000;
 }
 
-.fa-instagram{
-  color: #fff;
-  background: ;
-  border: 2px solid #000;
-  height: 40px;
-  width: 40px;
-  padding: 10px;
-  border-radius: 50px;
-  text-align: center;
+
+.right{
+animation: mymove 5s alternate;
 }
+
+@keyframes mymove {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+
+
+
+
+
 
 
 
