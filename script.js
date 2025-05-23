@@ -8,7 +8,7 @@ const slider = document.querySelector('.slider .list');
     const captionDesc = document.getElementById('caption-desc');
 
     const captions = [
-      { title: "Snowy Mountains", desc: "Snowy Mountains at Sunset" },
+      { title: "Huda 2025-26 generak election", desc: "Snowy Mountains at Sunset" },
       { title: "Green Valley", desc: "Green Valley Landscape" },
       { title: "Zugspitze Peak", desc: "Zugspitze Mountain Peak" },
       { title: "Peaceful Scene", desc: "Peaceful Countryside" },
