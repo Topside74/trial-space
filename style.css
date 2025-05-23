@@ -53,11 +53,7 @@ nav .content .links{
   font-weight: 500;
   padding: 9px 17px;
   transition: all 0.3s ease;
-<<<<<<< HEAD
-  border-right: 2px solid #000;
-=======
   border-right: 1px solid #00000071;
->>>>>>> 61c71d3ecc36458448afa3f4d9aff3e7155060b3
 }
 
 .content .links li label{
@@ -303,45 +299,18 @@ nav .content .links{
   margin-bottom: 250px;
 }
 
-.home-text{
-    font-size: 22px;
-    font-weight: 500;
-    color: var(--other-color);
+.heading{
+  color: #171c24;
+  line-height: 1;
+  font-size: 2.5rem;
 }
 
-.home-text h3{
-    font-size: var(--big-font);
-    color: var(--text-color);
-    line-height: 1.2;
-    margin: 25px 0 45px;
-    font-size: 40px;
+.heading p{
+  font-size: 20px;
 }
 
-.home-text p{
-    font-size: 10px
-}
-.btn{
-    display: inline-block;
-    padding: 16px 30px;
-    background: var(--text-color);
-    color: var(--bg-color);
-    font-size: 15px;
-    letter-spacing: 1px;
-    border-radius: 30px;
-    transition: all .45s ease;
-    font-family: 'Poppins', sans-serif;
-}
-.btn:hover{
-    letter-spacing:2px;
-    opacity: 0.8;
-}
-
-.home-text p{
+.heading .subs{
   font-size: 15px;
-}
-
-.home-text .subs{
-  font-size: 7px;
 }
 
 .collageimg{
@@ -405,17 +374,3 @@ animation: mymove 5s alternate;
   from {opacity: 0;}
   to {opacity: 1;}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
