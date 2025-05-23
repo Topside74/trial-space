@@ -394,3 +394,132 @@ animation: mymove 5s alternate;
      background-color: rgba(19, 36, 90, 0.692); 
 
 }
+
+
+/*section two start here*/
+
+
+.sectwo {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .sectwo h2 {
+      margin-bottom: 20px;
+    }
+
+    .sectwo span {
+      color: wheat;
+    }
+
+    .sli {
+      display: flex;
+     
+    }
+
+    .slider {
+      max-width: 700px;
+      width: 100%;
+      height: 400px;
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+    }
+
+    .slider .list {
+      display: flex;
+      transition: 1s;
+      height: 100%;
+    }
+
+    .slider .item {
+      min-width: 100%;
+      height: 100%;
+      position: relative;
+    }
+
+    .slider .item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    .slider .buttons {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+      padding: 0 15px;
+    }
+
+    .slider .buttons button {
+      width: 35px;
+      height: 35px;
+      border-radius: 50%;
+      background-color: rgba(255, 255, 255, 0.4);
+      color: white;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+    }
+
+    .slider .dots {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .slider .dots li {
+      list-style: none;
+      width: 8px;
+      height: 8px;
+      background: #fff;
+      margin: 0 6px;
+      border-radius: 50%;
+      transition: 0.5s;
+    }
+
+    .slider .dots li.active {
+      width: 20px;
+      border-radius: 20px;
+    }
+
+    .caption-container {
+      margin-top: 20px;
+      max-width: 700px;
+      width: 100%;
+      text-align: center;
+      min-height: 60px;
+      transition: opacity 0.5s ease;
+    }
+
+    .caption-container h3,
+    .caption-container p {
+      margin: 5px 0;
+    }
+
+    .caption-fade {
+      opacity: 0;
+    }
+
+    @media (max-width: 768px) {
+      .slider {
+        height: 200px;
+      }
+
+      .caption-container h3 {
+        font-size: 18px;
+      }
+
+      .caption-container p {
+        font-size: 14px;
+      }
+    }
