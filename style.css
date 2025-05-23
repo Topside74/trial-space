@@ -665,7 +665,7 @@ animation: mymove 5s alternate;
       transform: scale(1.1);
     }
 
-    .secfour{
+    .secfoursub{
       height: 100vh;
       display: flex;
       justify-content: center;
@@ -735,5 +735,213 @@ animation: mymove 5s alternate;
 
     }
 
+    .secfourh2{
+    color: #000;
+    font-size: 40px;
+    margin-left: 40px;
+    }
 
-    
+    .secfourh2 span{
+      color: rgb(247, 175, 43);
+    }
+
+    @media screen and (max-width: 1024px) {
+  .secone {
+    flex-direction: column;
+    height: auto;
+    padding: 100px 20px;
+  }
+  
+  .left {
+    position: static;
+    margin: 0;
+    padding: 20px;
+    text-align: center;
+  }
+  
+  .heading {
+    font-size: 2rem;
+  }
+  
+  .right {
+    margin-top: 50px;
+  }
+  
+  .imgco {
+    position: relative;
+    top: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 90%;
+    max-width: 25rem;
+  }
+  
+  .ahia {
+    display: none;
+  }
+  
+  .icoons {
+    position: relative;
+    margin: 20px auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .sectwo {
+    height: auto;
+    padding: 50px 20px;
+  }
+  
+  .nseve {
+    text-align: center;
+    margin-left: 0;
+    font-size: 32px;
+  }
+  
+  .sli {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .slider {
+    margin-left: 0;
+    height: 250px;
+  }
+  
+  .caption-container {
+    margin: 20px auto;
+    padding: 0 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .slider {
+    height: 200px;
+  }
+  
+  .caption-container h3 {
+    font-size: 16px;
+  }
+  
+  .caption-container p {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .secthree {
+    height: auto;
+    padding: 50px 20px;
+  }
+
+  .secthreesub {
+    height: auto;
+  }
+
+  .abco {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .boxcoim {
+    display: none;
+  }
+
+  .coabim {
+    width: 90%;
+    max-width: 20rem;
+    height: auto;
+    margin: 0 auto;
+  }
+
+  .infco {
+    width: 90%;
+    height: auto;
+    padding: 30px;
+  }
+
+  .socmedi {
+    position: static;
+    margin: 20px auto;
+  }
+
+  .theco {
+    text-align: center;
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .infco {
+    padding: 20px;
+  }
+
+  .infcot h2 {
+    font-size: 1.5rem;
+  }
+
+  .infcot p {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .secfour {
+    padding: 50px 20px;
+  }
+
+  .secfoursub {
+    height: auto;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .secfourh2 {
+    text-align: center;
+    margin-left: 0;
+  }
+
+  .cardco {
+    width: 90%;
+    max-width: 400px;
+    height: auto;
+    min-height: 300px;
+  }
+
+  .socico {
+    position: static;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .cardco {
+    padding: 20px;
+  }
+
+  .cardtex {
+    width: auto;
+    position: static;
+    padding: 20px;
+    text-align: center;
+  }
+
+  .cardim img {
+    margin: 0 auto;
+    display: block;
+  }
+
+  .cardtex h2 {
+    font-size: 1.5rem;
+  }
+
+  .cardtex p {
+    font-size: 0.9rem;
+  }
+}
+
+
+
