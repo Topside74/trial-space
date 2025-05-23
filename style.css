@@ -409,6 +409,8 @@ animation: mymove 5s alternate;
 
     .sectwo h2 {
       margin-bottom: 20px;
+      font-size: 40px;
+    
     }
 
     .sectwo span {
