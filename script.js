@@ -9,7 +9,7 @@ const slider = document.querySelector('.slider .list');
 
     const captions = [
       { title: "Huda 2025-26 generak election", desc: "Snowy Mountains at Sunset" },
-      { title: "Green Valley", desc: "Green Valley Landscape" },
+      { title: "Suno Hidaya", desc: "Green Valley Landscape" },
       { title: "Zugspitze Peak", desc: "Zugspitze Mountain Peak" },
       { title: "Peaceful Scene", desc: "Peaceful Countryside" },
       { title: "Alpine View", desc: "Snow-Capped Alps" }
