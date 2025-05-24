@@ -58,3 +58,49 @@ const slider = document.querySelector('.slider .list');
 
     let refreshInterval = setInterval(() => next.click(), 4000);
     window.addEventListener('resize', reloadSlider);
+
+
+
+
+    const counters = document.querySelectorAll('.counter');
+    const section = document.querySelector('.secsix');
+    let started = false;
+
+    const startCounting = () => {
+      const duration = 2000;
+      const frameRate = 60;
+      const totalFrames = Math.round((duration / 1000) * frameRate);
+
+      counters.forEach(counter => {
+        const target = +counter.getAttribute('data-target');
+        let frame = 0;
+
+        const updateCounter = () => {
+          frame++;
+          const progress = frame / totalFrames;
+          const current = Math.round(target * progress);
+          counter.textContent = current;
+
+          if (frame < totalFrames) {
+            requestAnimationFrame(updateCounter);
+          } else {
+            counter.textContent = target + '+';
+          }
+        };
+
+        requestAnimationFrame(updateCounter);
+      });
+    };
+
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting && !started) {
+          startCounting();
+          started = true;
+        }
+      });
+    }, {
+      threshold: 0.5
+    });
+
+    observer.observe(section);
