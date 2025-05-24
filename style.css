@@ -587,7 +587,7 @@ animation: mymove 5s alternate;
       background-color: skyblue;
       box-shadow: 3px 3px 5px rgb(0,0,0,0.1);
       position: relative;
-      z-index: 999;
+      z-index: -99;
 
     }
 
@@ -622,7 +622,7 @@ animation: mymove 5s alternate;
       box-shadow: 3px 3px 5px rgb(0,0,0,0.1);
       top: -160px;
       right: -80px;
-
+      z-index: -999;
   }
 
   .socmedi{
@@ -962,3 +962,84 @@ animation: mymove 5s alternate;
 
 
 
+
+/*section five*/
+
+.secfive {
+  padding: 4rem 2rem;
+  background-color: #f9f9f9;
+  font-family: 'Segoe UI', sans-serif;
+  color: #333;
+  text-align: center;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 3rem;
+}
+
+.section-title span {
+  color: rgb(247, 175, 43)
+}
+
+.secfivesub {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  align-items: center;
+}
+
+.mission-vision {
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.card {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  text-align: left;
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  height: 25rem;
+  display: block;
+  border-top-left-radius: 1rem;
+  border-top-right-radius: 1rem;
+}
+
+.text-content {
+  padding: 1.5rem;
+}
+
+.text-content h3 {
+  font-size: 1.75rem;
+  color: rgb(247, 175, 43);
+  margin-bottom: 1rem;
+}
+
+.text-content ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.text-content li {
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+.text-content i {
+  margin-right: 0.5rem;
+  color: rgb(247, 175, 43);
+}
