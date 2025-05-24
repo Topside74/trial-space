@@ -541,6 +541,9 @@ animation: mymove 5s alternate;
       .caption-container p {
         font-size: 14px;
       }
+      .sectwo h2{
+        margin: 0;
+      }
     }
 
 
@@ -666,7 +669,7 @@ animation: mymove 5s alternate;
     }
 
     .secfoursub{
-      height: 100vh;
+      height: 55vh;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -680,7 +683,7 @@ animation: mymove 5s alternate;
       height: 300px;
       width: 400px;
       overflow: hidden;
-      box-shadow: 3px 3px 5px rgb(0,0,0,0.1);
+      box-shadow: 3px 3px 5px rgb(0,0,0,0.2);
       transition: 0.6s ease;
     }
     .cardim img{
@@ -694,7 +697,7 @@ animation: mymove 5s alternate;
 
     .cardtex{
       position: relative;
-      top: -120px;
+      top: -100px;
       width: 250px;
       right: -130px;
       font-size: 0.9rem;
@@ -736,6 +739,7 @@ animation: mymove 5s alternate;
     }
 
     .secfourh2{
+    margin-top: 40px;
     color: #000;
     font-size: 40px;
     margin-left: 40px;
@@ -753,10 +757,15 @@ animation: mymove 5s alternate;
   }
   
   .left {
-    position: static;
-    margin: 0;
-    padding: 20px;
-    text-align: center;
+        position: static;
+        z-index: 99;
+        margin: 0;
+        padding: 20px;
+        backdrop-filter: blur(4px);
+        text-align: center;
+        height: 575px;
+        overflow: hidden;
+        border-radius: 20px;
   }
   
   .heading {
@@ -768,13 +777,19 @@ animation: mymove 5s alternate;
   }
   
   .imgco {
-    position: relative;
+    position: absolute;
     top: 0;
     right: 0;
+    left: 0;
     margin: 0 auto;
     width: 90%;
     max-width: 25rem;
+    height: 100%;
   }
+
+  .collageimg {
+    height: 100%;
+}
   
   .ahia {
     display: none;
@@ -850,8 +865,8 @@ animation: mymove 5s alternate;
   .coabim {
     width: 90%;
     max-width: 20rem;
-    height: auto;
     margin: 0 auto;
+    z-index: -999;
   }
 
   .infco {
@@ -932,6 +947,8 @@ animation: mymove 5s alternate;
   .cardim img {
     margin: 0 auto;
     display: block;
+    left: -4px;
+
   }
 
   .cardtex h2 {
