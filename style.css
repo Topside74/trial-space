@@ -165,65 +165,67 @@ nav .content .links{
   top: 0;
 }
 /* Responsive code start */
-@media screen and (max-width: 1250px){
-  .wrapper nav{
+@media screen and (max-width: 1250px) {
+  .wrapper nav {
     max-width: 100%;
     padding: 0 20px;
   }
-  nav .content .links{
+  nav .content .links {
     margin-left: 30px;
   }
-  .content .links li a{
+  .content .links li a {
     padding: 8px 13px;
   }
-  .wrapper .search-box{
+  .wrapper .search-box {
     max-width: calc(100% - 100px);
   }
-  .wrapper .search-box input{
+  .wrapper .search-box input {
     padding: 0 100px 0 15px;
   }
 }
-@media screen and (max-width: 900px){
-  .wrapper .menu-icon{
+
+@media screen and (max-width: 900px) {
+  .wrapper .menu-icon {
     display: block;
   }
-  .wrapper #show-menu:checked ~ .menu-icon i::before{
+  .wrapper #show-menu:checked ~ .menu-icon i::before {
     content: "\f00d";
   }
-  nav .content .links{
+  nav .content .links {
     display: block;
     position: fixed;
     background: #fff;
     height: 100%;
     width: 100%;
+    max-width: 100%;
     top: 70px;
     left: -100%;
     margin-left: 0;
-    max-width: 350px;
+    overflow-x: hidden;
     overflow-y: auto;
     padding-bottom: 100px;
     transition: all 0.3s ease;
   }
-  nav #show-menu:checked ~ .content .links{
+  nav #show-menu:checked ~ .content .links {
     left: 0%;
   }
-  .content .links li{
+  .content .links li {
     margin: 15px 20px;
   }
   .content .links li a,
-  .content .links li label{
+  .content .links li label {
     line-height: 40px;
     font-size: 20px;
     display: block;
     padding: 8px 18px;
     cursor: pointer;
   }
-  .content .links li a.desktop-link{
+  .content .links li a.desktop-link {
     display: none;
   }
   /* dropdown responsive code start */
   .content .links ul,
-  .content .links ul ul{
+  .content .links ul ul {
     position: static;
     opacity: 1;
     visibility: visible;
@@ -233,33 +235,34 @@ nav .content .links{
   }
   .content .links #show-features:checked ~ ul,
   .content .links #show-services:checked ~ ul,
-  .content .links #show-items:checked ~ ul{
+  .content .links #show-items:checked ~ ul {
     max-height: 100vh;
   }
-  .content .links ul li{
+  .content .links ul li {
     margin: 7px 20px;
   }
-  .content .links ul li a{
+  .content .links ul li a {
     font-size: 18px;
     line-height: 30px;
     border-radius: 5px!important;
   }
 }
-@media screen and (max-width: 400px){
-  .wrapper nav{
+
+@media screen and (max-width: 400px) {
+  .wrapper nav {
     padding: 0 10px;
   }
-  .content .logo a{
+  .content .logo a {
     font-size: 27px;
   }
-  .wrapper .search-box{
+  .wrapper .search-box {
     max-width: calc(100% - 70px);
   }
-  .wrapper .search-box .go-icon{
+  .wrapper .search-box .go-icon {
     width: 30px;
     right: 0;
   }
-  .wrapper .search-box input{
+  .wrapper .search-box input {
     padding-right: 30px;
   }
 }
@@ -536,21 +539,19 @@ animation: mymove 5s alternate;
     }
 
     @media (max-width: 768px) {
-      .slider {
-        height: 200px;
-      }
-
-      .caption-container h3 {
-        font-size: 18px;
-      }
-
-      .caption-container p {
-        font-size: 14px;
-      }
-      .sectwo h2{
-        margin: 0;
-      }
-    }
+  .slider {
+    height: 200px;
+  }
+  .caption-container h3 {
+    font-size: 18px;
+  }
+  .caption-container p {
+    font-size: 14px;
+  }
+  .sectwo h2 {
+    margin: 0;
+  }
+}
 
 
     /*section three*/
@@ -761,27 +762,23 @@ animation: mymove 5s alternate;
     height: auto;
     padding: 100px 20px;
   }
-  
   .left {
-        position: static;
-        z-index: 99;
-        margin: 0;
-        padding: 20px;
-        backdrop-filter: blur(4px);
-        text-align: center;
-        height: 575px;
-        overflow: hidden;
-        border-radius: 20px;
+    position: static;
+    z-index: 99;
+    margin: 0;
+    padding: 20px;
+    backdrop-filter: blur(4px);
+    text-align: center;
+    height: 575px;
+    overflow: hidden;
+    border-radius: 20px;
   }
-  
   .heading {
     font-size: 2rem;
   }
-  
   .right {
     margin-top: 50px;
   }
-  
   .imgco {
     position: absolute;
     top: 0;
@@ -792,15 +789,12 @@ animation: mymove 5s alternate;
     max-width: 25rem;
     height: 50%;
   }
-
   .collageimg {
     height: 100%;
-}
-  
+  }
   .ahia {
     display: none;
   }
-  
   .icoons {
     position: relative;
     margin: 20px auto;
@@ -812,23 +806,19 @@ animation: mymove 5s alternate;
     height: auto;
     padding: 50px 20px;
   }
-  
   .nseve {
     text-align: center;
     margin-left: 0;
     font-size: 32px;
   }
-  
   .sli {
     flex-direction: column;
     align-items: center;
   }
-  
   .slider {
     margin-left: 0;
     height: 250px;
   }
-  
   .caption-container {
     margin: 20px auto;
     padding: 0 20px;
@@ -839,11 +829,9 @@ animation: mymove 5s alternate;
   .slider {
     height: 200px;
   }
-  
   .caption-container h3 {
     font-size: 16px;
   }
-  
   .caption-container p {
     font-size: 14px;
   }
@@ -854,38 +842,31 @@ animation: mymove 5s alternate;
     height: auto;
     padding: 50px 20px;
   }
-
   .secthreesub {
     height: auto;
   }
-
   .abco {
     flex-direction: column;
     gap: 20px;
   }
-
   .boxcoim {
     display: none;
   }
-
   .coabim {
     width: 90%;
     max-width: 20rem;
     margin: 0 auto;
     z-index: -999;
   }
-
   .infco {
     width: 90%;
     height: auto;
     padding: 30px;
   }
-
   .socmedi {
     position: static;
     margin: 20px auto;
   }
-
   .theco {
     text-align: center;
     margin-left: 0;
@@ -896,11 +877,9 @@ animation: mymove 5s alternate;
   .infco {
     padding: 20px;
   }
-
   .infcot h2 {
     font-size: 1.5rem;
   }
-
   .infcot p {
     font-size: 0.9rem;
   }
@@ -910,25 +889,21 @@ animation: mymove 5s alternate;
   .secfour {
     padding: 50px 20px;
   }
-
   .secfoursub {
     height: auto;
     flex-direction: column;
     gap: 40px;
   }
-
   .secfourh2 {
     text-align: center;
     margin-left: 0;
   }
-
   .cardco {
     width: 90%;
     max-width: 400px;
     height: auto;
     min-height: 300px;
   }
-
   .socico {
     position: static;
     display: flex;
@@ -942,31 +917,24 @@ animation: mymove 5s alternate;
   .cardco {
     padding: 20px;
   }
-
   .cardtex {
     width: auto;
     position: static;
     padding: 20px;
     text-align: center;
   }
-
   .cardim img {
     margin: 0 auto;
     display: block;
     left: -4px;
-
   }
-
   .cardtex h2 {
     font-size: 1.5rem;
   }
-
   .cardtex p {
     font-size: 0.9rem;
   }
 }
-
-
 
 
 /*section five*/
