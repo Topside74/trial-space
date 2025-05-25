@@ -179,7 +179,14 @@ nav .content .links{
   .wrapper .search-box input {
     padding: 0 100px 0 15px;
   }
+      .logoahia{
+    left: -60px;
+    height: 10px;
+  }
+  
 }
+
+
 
 @media screen and (max-width: 900px) {
   .wrapper .menu-icon {
@@ -243,6 +250,10 @@ nav .content .links{
     line-height: 30px;
     border-radius: 5px!important;
   }
+
+
+  
+
 }
 
 @media screen and (max-width: 400px) {
@@ -262,6 +273,7 @@ nav .content .links{
   .wrapper .search-box input {
     padding-right: 30px;
   }
+  
 }
 .dummy-text{
   position: absolute;
@@ -325,18 +337,6 @@ nav .content .links{
 }
 
 /*=============== BASE ===============*/
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-body {
-  font-family: var(--body-font);
-  background-color: var(--body-color);
-  color: var(--text-color);
-}
-
 img {
   display: block;
   max-width: 100%;
