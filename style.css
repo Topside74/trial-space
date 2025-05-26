@@ -1191,6 +1191,7 @@ animation: mymove 5s alternate;
 .newsletter-form {
   display: flex;
   gap: 5px;
+  margin-top: 80px;
 }
 
 .newsletter-form input[type="email"] {
