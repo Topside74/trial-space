@@ -290,7 +290,7 @@ nav .content .links{
 
     #bannerimage {
       width: 100%;
-      background-image: url(channels4_banner.jpg);
+      background: rgba(177, 121, 0, 0.897);
       background-size: cover;
       height: 305px;
       background-position: center;
