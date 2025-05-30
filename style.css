@@ -135,7 +135,6 @@ nav .content .links{
   z-index: -1;
   opacity: 0;
   visibility: hidden;
- backdrop-filter: blur(8px);
   box-shadow: 3px 3px 5px rgb(0,0,0,0.1);
   border-radius: 0 0 10px 10px;
 
