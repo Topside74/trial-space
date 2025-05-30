@@ -1,1098 +1,348 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Responsive Media Gallery</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap">
-    <style>
-        :root {
-            --first-color: rgb(255, 189, 65);
-            --hover-color: rgba(255, 189, 65, 0.781);
-            --title-color: hsl(0, 0%, 15%);
-            --text-color: hsl(0, 0%, 35%);
-            --body-color: hsl(0, 0%, 95%);
-            --container-color: hsl(0, 0%, 100%);
-            --body-font: "Poppins", sans-serif;
-            --h2-font-size: 1.25rem;
-            --small-font-size: .813rem;
-        }
-
-        @media screen and (min-width: 1120px) {
-            :root {
-                --h2-font-size: 1.5rem;
-                --small-font-size: .875rem;
-            }
-        }
-
-        * {
-            box-sizing: border-box;
-            padding: 0;
-            margin: 0;
-        }
-
-        body {
-            font-family: var(--body-font);
-            background-color: var(--body-color);
-            color: var(--text-color);
-        }
-
-        img, video {
-            display: block;
-            max-width: 100%;
-            height: auto;
-            border-radius: 1.5rem;
-        }
-
-        .container {
-            display: flex;
-            flex-direction: column;
-            margin-inline: 1.5rem;
-            padding-block: 2rem;
-            gap: 2rem;
-            max-width: 1400px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .card__container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            grid-auto-rows: minmax(200px, auto);
-            gap: 1.5rem;
-            width: 100%;
-        }
-
-        .card__article {
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-
-        .card__media-container {
-            flex: 1;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-            border-radius: 1.5rem;
-        }
-
-        .card__img, .card__video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.3s ease;
-        }
-
-        .card__article:hover .card__img, 
-        .card__article:hover .card__video {
-            transform: scale(1.05);
-        }
-
-        .card__data {
-            width: 90%;
-            background-color: var(--container-color);
-            padding: 1.5rem 2rem;
-            box-shadow: 0 8px 24px hsla(0, 0%, 0%, .15);
-            border-radius: 1rem;
-            position: absolute;
-            bottom: -9rem;
-            left: 0;
-            right: 0;
-            margin-inline: auto;
-            opacity: 0;
-            transition: opacity 1s 1s;
-        }
-
-        .card__description {
-            display: block;
-            font-size: var(--small-font-size);
-            margin-bottom: .25rem;
-        }
-
-        .card__title {
-            font-size: var(--h2-font-size);
-            font-weight: 500;
-            color: var(--title-color);
-            margin-bottom: .75rem;
-        }
-
-        .card__button {
-            text-decoration: none;
-            font-size: var(--small-font-size);
-            font-weight: 500;
-            color: var(--first-color);
-            display: inline-block;
-            margin-right: 1rem;
-        }
-
-        .card__button:hover {
-            text-decoration: underline;
-        }
-
-        .card__view__image {
-            padding: 0.5rem 1rem;
-            border: none;
-            border-radius: 0.5rem;
-            background-color: var(--first-color);
-            color: var(--container-color);
-            cursor: pointer;
-            font-family: var(--body-font);
-            font-size: var(--small-font-size);
-            font-weight: 500;
-            transition: 0.6s ease;
-        }
-
-        .card__view__image:hover {
-            background-color: var(--hover-color);
-            color: #333;
-        }
-
-        .card__article:hover .card__data {
-            animation: show-data 1s forwards;
-            opacity: 1;
-            transition: opacity .3s;
-        }
-
-        .card__article:hover {
-            animation: remove-overflow 2s forwards;
-            z-index: 999;
-        }
-
-        .card__article:not(:hover) {
-            animation: show-overflow 2s forwards;
-        }
-
-        .card__article:not(:hover) .card__data {
-            animation: remove-data 1s forwards;
-        }
-
-        @keyframes show-data {
-            50% { transform: translateY(-10rem); }
-            100% { transform: translateY(-7rem); }
-        }
-
-        @keyframes remove-overflow {
-            to { overflow: initial; }
-        }
-
-        @keyframes remove-data {
-            0% { transform: translateY(-7rem); }
-            50% { transform: translateY(-10rem); }
-            100% { transform: translateY(.5rem); }
-        }
-
-        @keyframes show-overflow {
-            0% { overflow: initial; pointer-events: none; }
-            50% { overflow: hidden; }
-        }
-
-        .sidebar {
-            width: 100%;
-            background-color: var(--container-color);
-            padding: 1.5rem;
-            border-radius: 1rem;
-            box-shadow: 0 8px 24px hsla(0, 0%, 0%, .15);
-            transition: transform 0.3s ease-in-out;
-            z-index: 100;
-        }
-
-        .sidebar h2 {
-            font-size: var(--h2-font-size);
-            font-weight: 500;
-            color: var(--title-color);
-            margin-bottom: 1.5rem;
-        }
-
-        .category__buttons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .category__button {
-            padding: 0.75rem 1rem;
-            border: none;
-            border-radius: 0.5rem;
-            background-color: var(--body-color);
-            cursor: pointer;
-            font-family: var(--body-font);
-            font-size: var(--small-font-size);
-            color: var(--text-color);
-            text-align: left;
-            transition: background-color 0.3s, box-shadow 0.3s;
-            flex: 1 0 auto;
-            min-width: 100px;
-        }
-
-        .category__button:hover, .category__button.active {
-            background-color: var(--first-color);
-            color: var(--container-color);
-            box-shadow: 0 4px 12px hsla(82, 60%, 28%, .3);
-        }
-
-        .tag__filter__button {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border: none;
-            border-radius: 0.5rem;
-            background-color: var(--first-color);
-            color: var(--container-color);
-            cursor: pointer;
-            font-family: var(--body-font);
-            font-size: var(--small-font-size);
-            font-weight: 500;
-            transition: 0.6s ease;
-        }
-
-        .tag__filter__button:hover {
-            background-color: var(--hover-color);
-            color: #333;
-        }
-
-        .nav__icon {
-            display: none;
-            cursor: pointer;
-            color: var(--title-color);
-            position: fixed;
-            top: 1rem;
-            left: 1rem;
-            z-index: 1000;
-            background-color: var(--container-color);
-            padding: 0.5rem;
-            border-radius: 0.5rem;
-            box-shadow: 0 4px 12px hsla(0, 0%, 0%, .15);
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: hsla(0, 0%, 0%, .5);
-            align-items: center;
-            justify-content: center;
-            z-index: 1000;
-        }
-
-        .tag__modal__content {
-            background-color: var(--container-color);
-            padding: 2rem;
-            border-radius: 1rem;
-            box-shadow: 0 8px 24px hsla(0, 0%, 0%, .15);
-            width: 90%;
-            max-width: 400px;
-        }
-
-        .tag__modal__content h2 {
-            font-size: var(--h2-font-size);
-            color: var(--title-color);
-            margin-bottom: 1.5rem;
-        }
-
-        .tag__checkboxes {
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .tag__checkboxes label {
-            display: flex;
-            align-items: center;
-            font-size: var(--small-font-size);
-            color: var(--text-color);
-        }
-
-        .tag__checkboxes input {
-            margin-right: 0.5rem;
-        }
-
-        .image__modal__content {
-            background-color: var(--container-color);
-            padding: 2rem;
-            border-radius: 1rem;
-            width: 90%;
-            max-width: 90vw;
-            max-height: 90vh;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-
-        .image__modal__img, .image__modal__video {
-            max-width: 100%;
-            max-height: 60vh;
-            border-radius: 1rem;
-            object-fit: contain;
-        }
-
-        .image__modal__description {
-            background-color: var(--body-color);
-            padding: 1rem;
-            border-radius: 0.5rem;
-            font-size: var(--small-font-size);
-            color: var(--text-color);
-        }
-
-        .image__modal__buttons {
-            display: flex;
-            gap: 1rem;
-            justify-content: flex-end;
-        }
-
-        .modal__button {
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 0.5rem;
-            cursor: pointer;
-            font-family: var(--body-font);
-            font-size: var(--small-font-size);
-            font-weight: 500;
-            transition: 0.6s ease;
-        }
-
-        .modal__button--apply, .modal__button--fullscreen {
-            background-color: var(--first-color);
-            color: var(--container-color);
-        }
-
-        .modal__button--apply:hover, .modal__button--fullscreen:hover {
-            background-color: var(--hover-color);
-            color: #333;
-        }
-
-        .modal__button--cancel, .modal__button--exit {
-            background-color: var(--body-color);
-            color: var(--text-color);
-        }
-
-        .modal__button--cancel:hover, .modal__button--exit:hover {
-            background-color: hsl(0, 0%, 85%);
-        }
-
-        @media screen and (min-width: 768px) {
-            .container {
-                flex-direction: row;
-                align-items: flex-start;
-            }
-            
-            .sidebar {
-                width: 250px;
-                position: sticky;
-                top: 2rem;
-            }
-            
-            .card__container {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            }
-        }
-
-        @media screen and (min-width: 1024px) {
-            .card__container {
-                grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            }
-        }
-
-        @media screen and (max-width: 767px) {
-            .nav__icon {
-                display: block;
-            }
-            
-            .sidebar {
-                position: fixed;
-                top: 0;
-                left: 0;
-                height: 100%;
-                transform: translateX(-100%);
-                overflow-y: auto;
-            }
-            
-            .sidebar.active {
-                transform: translateX(0);
-            }
-            
-            .category__buttons {
-                flex-direction: row;
-                flex-wrap: wrap;
-            }
-            
-            .category__button {
-                min-width: calc(50% - 0.5rem);
-            }
-        }
-
-        @media screen and (max-width: 480px) {
-            .container {
-                margin-inline: 1rem;
-            }
-            
-            .card__container {
-                grid-template-columns: 1fr;
-            }
-            
-            .category__button {
-                min-width: 100%;
-            }
-            
-            .card__data {
-                width: 95%;
-                padding: 1rem;
-            }
-            
-            .image__modal__content {
-                padding: 1rem;
-            }
-        }
-    </style>
+    <title>AHIA Kalamassery</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./cologo.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
 </head>
 <body>
-    <div class="nav__icon" id="navIcon" aria-label="Toggle navigation menu">
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <line x1="3" y1="6" x2="21" y2="6"></line>
-            <line x1="3" y1="12" x2="21" y2="12"></line>
-            <line x1="3" y1="18" x2="21" y2="18"></line>
-        </svg>
+    <div class="wrapper">
+    <nav>
+      <input type="checkbox" id="show-search">
+      <input type="checkbox" id="show-menu">
+      <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
+      <div class="content">
+      <div class="logo"><a href="#"><img src="./ahia_logo-removebg-preview.png" class="logoahia"><img src="./huda ahia (1).png"></a></div>
+        <ul class="links">
+          <li><a href="#">Home</a></li>
+          <li>
+            <a href="#" class="desktop-link">Gallery</a>
+            <input type="checkbox" id="show-features">
+            <label for="show-features">Gallery</label>
+            <ul>
+              <li><a href="./imggallery.html">Image Gallery</a></li>
+              <li><a href="#">Video Gallery</a></li>
+              <li><a href="#">Poster Gallery</a></li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="desktop-link">Services</a>
+            <input type="checkbox" id="show-services">
+            <label for="show-services">Services</label>
+            <ul>
+              <li><a href="#">Drop Menu 1</a></li>
+              <li><a href="#">Drop Menu 2</a></li>
+              <li><a href="#">Drop Menu 3</a></li>
+              <li>
+                <a href="#" class="desktop-link">More Items</a>
+                <input type="checkbox" id="show-items">
+                <label for="show-items">More Items</label>
+                <ul>
+                  <li><a href="#">Sub Menu 1</a></li>
+                  <li><a href="#">Sub Menu 2</a></li>
+                  <li><a href="#">Sub Menu 3</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="desktop-link">About US</a>
+            <input type="checkbox" id="show-features">
+            <label for="show-features">Features</label>
+            <ul>
+              <li><a href="about.html">History</a></li>
+              <li><a href="about.html">Message</a></li>
+              <li><a href="about.html">Mission & Vision</a></li>
+          </li>
+
+        </ul>
+                   <li><a href="contact.html">Contact US</a></li>              
+
+      </div>
+    </nav>
+  </div>
+
+
+
+
+
+
+
+
+
+
+  <div class="secone">
+    <div class="left">
+        <div class="heading">
+            <h2><p style="font-family: poppins, sans-serif;">We welcome all of you <br>to our exellent campus
+                </p>
+                AL-HIDAYA <br>
+                <h5>Islamic Academy</h5>
+                <p style="margin-top: 10px;">A vibrant space where spiritual and wordly education come together. <br> A center that light the path of faith, action and awareness. <br> A platform for education, culture, socialcare, and a humanitarian outreach. <br> A constant source of inspiration-shaping individuals, building society,<br> and nurturing peace in today's world.</p>
+
+                <label class="subs">Help this Deeni College, Provide Allah's help <a href=""><button class="don">Discover More</button></a></label>
+            </h2>
+        </div>
+        <div class="icoons">
+            <a href="https://www.instagram.com/huda_ahia_/"><button style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: #fff; border-radius: 30px; height: 30px; width: 30px; border: none; padding: 6px;"><i class="fa-brands fa-instagram"></i></button></a>
+            <a href="https://www.youtube.com/@hudaahia"><button style="background:rgb(24, 119, 242);color: #fff; border-radius: 30px; height: 30px; width: 30px; border: none; padding: 6px;"><i class="fa-brands fa-facebook"></i></button></a>
+            <a href="https://www.facebook.com/hudaahiakalamassery/"><button style="background:rgb(255, 0, 0);color: #fff; border-radius: 30px; height: 30px; width: 30px; border: none; padding: 6px;"><i class="fa-brands fa-youtube"></i></button></a>
+        </div>
+         
+            
+        </div>
     </div>
-    <div class="container">
-        <aside class="sidebar" id="sidebar">
-            <h2>Categories</h2>
-            <div class="category__buttons">
-                <button class="category__button active" data-category="All" aria-label="Show all content">All</button>
-                <button class="category__button" data-category="Photos" aria-label="Show photos">Photos</button>
-                <button class="category__button" data-category="Videos" aria-label="Show videos">Videos</button>
-                <button class="category__button" data-category="Posters" aria-label="Show posters">Posters</button>
+    <div class="right">
+<div class="frames"><div class="imgco">
+<img src="./IMG_4507.png" class="collageimg">
+</div>
+<img src="./ahia_logo-removebg-preview.png"  class="ahia">
+
+</div>
+    </div>
+  </div>
+
+     <div class="sectwo">
+    <h2 class="nseve">News & <span>Events</span></h2>
+    <div class="sli">
+      <div class="slider">
+        <div class="list">
+          <div class="item"><img src="./images/org elect.png" alt=""></div>
+          <div class="item"><img src="./images/sun hid org.png" alt=""></div>
+          <div class="item"><img src="./images/sibaq.png" alt=""></div>
+          <div class="item"><img src="./images/IMG_20250101_134820.jpg" alt=""></div>
+          <div class="item"><img src="./images/IMG-20241202-WA0115.jpg" alt=""></div>
+          <div class="item"><img src="./images/5_6158748292306965755.jpg" alt=""></div>
+          <div class="item"><img src="./images/5_6158748292306965754.jpg" alt=""></div>
+        </div>
+
+        <div class="buttons">
+          <button id="prev">&#10094;</button>
+          <button id="next">&#10095;</button>
+        </div>
+
+        <ul class="dots">
+          <li class="active"></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+          <li></li>
+        </ul>
+      </div>
+
+      <div class="caption-container" id="caption-box">
+        <h3 id="caption-title">Snowy Mountains</h3>
+        <p id="caption-desc">Snowy Mountains at Sunset</p>
+      </div>
+    </div>
+  </div>
+
+   
+
+
+
+  <div class="secthree">
+    <h2 class="theco">The <span>College</span></h2>
+    <div class="secthreesub">
+    <div class="abco">
+      <div class="boxcoim"></div>
+      <div class="coabim">
+      <img src="./IMG_4507.png" alt="">
+    </div>
+      <div class="infco">
+        <div class="infcot">
+               <h2>AL HIDAYA <span>Islamic Academy (AHIA)</span></h2>
+               <p>Al Hidaya Islamic Academy (AHIA) is an esteemed Islamic educational institution situated in Kalamassery, Kochi, Kerala. Affiliated with Darul Huda Islamic University Run by Njalakam Muslim Jama'ath, Chemmad, AHIA is dedicated to providing a comprehensive blend of traditional Islamic scholarship and contemporary education, aiming to nurture morally upright and intellectually capable individuals.</p>
+                   <div class="socmedi">
+  <a href="https://www.instagram.com/huda_ahia_/"><button style="background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); color: #fff; border-radius: 30px; height: 30px; width: 30px; border: none; padding: 6px;"><i class="fa-brands fa-instagram"></i></button></a>
+  <a href="https://www.youtube.com/@hudaahia"><button style="background:rgb(24, 119, 242);color: #fff; border-radius: 30px; height: 30px; width: 30px; border: none; padding: 6px;"><i class="fa-brands fa-facebook"></i></button></a>
+  <a href="https://www.facebook.com/hudaahiakalamassery/"><button style="background:rgb(255, 0, 0);color: #fff; border-radius: 30px; height: 30px; width: 30px; border: none; padding: 6px;"><i class="fa-brands fa-youtube"></i></button></a>
+
+</div>
+</div>
+
+      </div>
+  
+    </div>
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+<div class="secfour">
+<h2 class="secfourh2">Principal's <span>Desk</span></h2>
+<div class="secfoursub">
+
+
+  <div class="cardco">
+    <div class="cardim"><img src="./IMG-20250501-WA0072 (1).jpg" ></div>
+    <div class="cardtex">
+      <h2>Abdul Salam <span>Quasimi</span></h2><br>
+      <label class="highlight">Principal</label>
+      <p>I praise my Lord for blessing me with the opportunity to serve at Al-Hidaya. <br>
+        I take pride in the managing committee of Njalakam Jama'ath for affiliating this institution with Darul Huda and operating it in a context that is relevant to the times.
+        <br>The right path is the goal of both Darul Huda and Al-Hidaya.
+         It is the right path that Allah has revealed in the Qur'an (Al-Baqara).
+<br>If, because of you, a single person is guided to the right path, it is better for you than the whole world and everything in it.
+ (Hadith)
+<br>
+There is no doubt that this institution is creating milestones of transformation within the Muslim community. <br>
+I hope that the leaders of tomorrow will be the children of this institution.
+With the humble request that your prayers and support be with all the endeavors the institution puts forward…
+
+
+
+
+</p>
+    </div>
+    <div class="socico">
+      <a href=""><button style="background: rgb(12, 141, 12); color: #fff; border-radius: 30px; height: 30px; width: 30px; border: none; padding: 6px;"><i class="fa-brands fa-whatsapp"></i></button></a>
+  <a href=""><button style="background:rgb(12, 141, 12);color: #fff; border-radius: 30px; height: 30px; width: 30px; border: none; padding: 6px;"><i class="fa-solid fa-phone"></i></button></a>
+    </div>
+  </div>
+
+
+</div>
+</div>
+
+
+
+<div class="secfive">
+  <h2 class="section-title">Our <span>Mission</span> & <span>Vision</span></h2>
+
+  <div class="secfivesub">
+    <!-- Mission -->
+    <div class="mission-vision">
+      <div class="card mission">
+        <img src="./IMG-20250504-WA0002.jpg" alt="Mission Image" />
+        <div class="text-content">
+          <h3><i class="fa-solid fa-star-of-life fa-spin"></i> Mission</h3>
+          <ul>
+            <li><i class="fa-solid fa-circle-dot"></i> To develop an Islamic educational framework that nurtures individuals conscious of their ultimate responsibilities—towards Allah.</li>
+            <li><i class="fa-solid fa-circle-dot"></i> Themselves, their families, and society—by practicing Islam and promoting religious scholarship.</li>
+            <li><i class="fa-solid fa-circle-dot"></i> Guided by the Qur’an, Prophetic legacy, and Islamic heritage, unifying knowledge with truth and purpose.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Vision -->
+      <div class="card vision">
+        <img src="./IMG-20250225-WA0028.jpg" alt="Vision Image" />
+        <div class="text-content">
+          <h3><i class="fa-solid fa-star-of-life fa-spin"></i> Vision</h3>
+          <ul>
+            <li><i class="fa-solid fa-circle-dot"></i> Become a center of excellence in Islamic education, reviving scholarly mastery in Islamic sciences.</li>
+            <li><i class="fa-solid fa-circle-dot"></i> Establish research hubs, preserve intellectual heritage, and raise a generation of true scholars (Ulama).</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="secsix">
+<div class="counter-container">
+    <div class="counter-box">
+      <i class="fas fa-user-tie"></i> <!-- Usthads -->
+      <div class="counter" data-target="18">0</div>
+      <div class="label">Usthads</div>
+    </div>
+    <div class="counter-box">
+      <i class="fas fa-user-graduate"></i> <!-- Students -->
+      <div class="counter" data-target="150">0</div>
+      <div class="label">Students</div>
+    </div>
+    <div class="counter-box">
+      <i class="fas fa-chalkboard-teacher"></i> <!-- Classes -->
+      <div class="counter" data-target="8">0</div>
+      <div class="label">Classes</div>
+    </div>
+    <div class="counter-box">
+      <i class="fas fa-calendar-check"></i> <!-- Activities -->
+      <div class="counter" data-target=" 180">0</div>
+      <div class="label">Activities</div>
+    </div>
+  </div>
+</div>
+
+
+<div class="secseven">
+
+<footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-section about">
+                <h3 class="footer-heading">About Our Academy</h3>
+                <p>Al Hidaya Islamic Academy (AHIA) is an esteemed Islamic educational institution situated in Kalamassery, Kochi, Kerala. Affiliated with Darul Huda Islamic University, Chemmad, run by Njalakam Muslim Jama'ath, AHIA is dedicated to providing a comprehensive blend of traditional Islamic scholarship and contemporary education, aiming to nurture morally upright and intellectually capable individuals.</p>
+                <div class="social-links">
+                    <a href="https://www.youtube.com/@hudaahia" aria-label="Facebook"><i class="fab fa-youtube"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-telegram"></i></a>
+                    <a href="https://www.facebook.com/249887548739845" aria-label="LinkedIn"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.instagram.com/huda_ahia_/" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
             </div>
-            <h2>Filter by Tags</h2>
-            <button class="tag__filter__button" aria-label="Open tag filter">Select Tags</button>
-        </aside>
 
-        <div class="card__container" id="contentContainer"></div>
+            <div class="footer-section quick-links">
+                <h3 class="footer-heading">Quick Links</h3>
+                <ul>
+                    <li><a href="#">Gallery</a></li>
+                    <li><a href="#">Publications</a></li>
+                    <li><a href="#">Admissions</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">About US</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </div>
 
-        <div class="modal" id="tagModal">
-            <div class="tag__modal__content">
-                <h2>Select Tags</h2>
-                <div class="tag__checkboxes">
-                    <label><input type="checkbox" value="Sibaq @ Kochi">Sibaq @ Kochi</label>
-                    <label><input type="checkbox" value="LASTABISHI"> LASTABISHI</label>
-                    <label><input type="checkbox" value="Independence Day"> Independence Day</label>
-                    <label><input type="checkbox" value="Motivation Talks"> Motivation Talks</label>
-                    <label><input type="checkbox" value="Guest Talks"> Guest Talks</label>
-                    <label><input type="checkbox" value="2025-26 core comittee">2025-26 core comittee</label>
-                    <label><input type="checkbox" value="Social Affairs">Social Affairs</label>
-                    <label><input type="checkbox" value="AL-Ifthithah">AL-Ifthithah</label>
-                    <label><input type="checkbox" value="Dulhijju Special">Dulhijju Special</label>
-                    <label><input type="checkbox" value="Achivements">Achivements</label>
-                    <label><input type="checkbox" value="Ansmaranams">Ansmaranams</label>
+            <div class="footer-section contact-info">
+                <h3 class="footer-heading">Contact Us</h3>
+                <p><i class="fas fa-map-marker-alt"></i> Al-Hidaya, Kalamassery, Kochi, Kerala, India(pin:682033)</p>
+                <p><i class="fas fa-phone"></i> +91 9446186946</p>
+                <p><i class="fas fa-envelope"></i>alhidayaislamicacademy@gmail.com</p>
+            </div>
 
-                </div>
-                <div class="modal__buttons">
-                    <button class="modal__button modal__button--cancel" aria-label="Cancel tag selection">Cancel</button>
-                    <button class="modal__button modal__button--apply" aria-label="Apply selected tags">Apply</button>
-                </div>
+            <div class="footer-section newsletter">
+                <h3 class="footer-heading">Stay Updated</h3>
+                <p>Subscribe to our newsletter for the latest news and updates.</p>
+                <form class="newsletter-form">
+                    <input type="email" placeholder="Enter your email" aria-label="Enter your email for newsletter" required>
+                    <button type="submit" aria-label="Subscribe to newsletter">Subscribe</button>
+                </form>
             </div>
         </div>
 
-        <div class="modal" id="mediaModal">
-            <div class="image__modal__content">
-                <div id="modalMediaContainer"></div>
-                <div class="image__modal__description" id="modalDescription"></div>
-                <div class="image__modal__buttons">
-                    <button class="modal__button modal__button--fullscreen" aria-label="View media in full screen">Full Screen</button>
-                    <button class="modal__button modal__button--exit" aria-label="Close media modal">Exit</button>
-                </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Al Hidaya Islamic Academy. All rights reserved.</p>
+            <div class="footer-legal-links">
+                <a href="https://www.freeprivacypolicy.com/live/d183864d-50e4-4a86-8ed9-7cfd1b77f185">Privacy Policy</a>
+                <a href="https://www.termsfeed.com/live/94991728-a5b8-4a9a-816e-312439ba1d67">Terms of Service</a>
             </div>
         </div>
-    </div>
+    </footer>
 
-    <script>
-        const contentData = [
-              {
-                type: 'posters',
-                title: 'CH Usthad Ansmarana Campaign',
-                description: "CH Usthad Anusmarana Campaign (Skssf wing Al Hidaya)",
-                tags: ['Ansmaranams'],
-                imgSrc: './ANUSMARANAM3.jpg',
-                date: '2025-05-25'
-            },
-             {
-                type: 'posters',
-                title: 'CH Usthad Ansmarana prbhashanam',
-                description: "CH Usthad Anusmarana prbhashanam (Abdul Kareem Moulavi (S.M.F General Secretary Ernakulam))(Skssf wing Al Hidaya)",
-                tags: ['Ansmaranams'],
-                imgSrc: './chustahdanusmarana.jpg',
-                date: '2025-05-25'
-            },
-                     {
-                type: 'photos',
-                title: 'Indipendence Day',
-                description: "Al Hidaya islamic academy students standing infront of Njalakam Juma Masjid on 15-8-2023 to take group photo on india's 75th Indipendence Day (Aadi ka amrit mahotsav) ",
-                tags: ['Indipendence Day'],
-                imgSrc: 'https://yt3.ggpht.com/nZQLcFhzSHEEG01yxVvLyLwPUVAUmYhWJ6X4JWAlj5hRf9Oio_ZP-Sgyus6l1qYeVZ8_UYtX2UmXgg=s640-c-fcrop64=1,0000199affffe666-rw-nd-v1',
-                date: '2023-08-15'
-            },
-                      {
-                type: 'photos',
-                title: 'Independence Day',
-                description: "Al Hidaya islamic academy celebrating india's 75th Indipendence Day (Aadi ka amrit mahotsav) ",
-                tags: ['independence Day'],
-                imgSrc: 'https://yt3.ggpht.com/sIDEoOevVEERvxTVA-ULISrE_9JEM6g8FcP1uQ38UN2DS5ZAPsl29PmZf5PBd6qtneg0KH70A4kYEw=s640-c-fcrop64=1,000019b3ffffe64c-rw-nd-v1',
-                date: '2023-08-15'
-            },
-                   {
-                type: 'photos',
-                title: 'Independence Day',
-                description: '',
-                tags: ['Independence Day'],
-                imgSrc: 'https://yt3.ggpht.com/OWrMN9hqohT6zUlqJrghjJ8PBy24YVk04NIReZVrOYKhhevE66JhQF8gg5VJ41VQE4h1kksRQDBfWA=s640-c-fcrop64=1,0000199affffe666-rw-nd-v1',
-                date: '2023-08-15'
-            },
-                {
-                type: 'photos',
-                title: 'Independence Day',
-                description: '',
-                tags: ['Independence Day'],
-                imgSrc: 'https://yt3.ggpht.com/yarbX1iZIXp-wIKR-dwGZSt7yGsxZR4XTfYIqyO-nUV_4XyKYK4LZvB1AdunWfsxPfOAfj_fLJkJ_Q=s640-c-fcrop64=1,0000199affffe666-rw-nd-v1',
-                date: '2023-08-15'
-            },
-                {
-                type: 'photos',
-                title: 'Independence Day',
-                description: '',
-                tags: ['Independence Day'],
-                imgSrc: 'https://yt3.ggpht.com/9w80SNGeHL3XwdpskAH_zda2wcpGaTO06ZS4DTgctVlGBfBGQrHYdx38IOHO2laFARj3BnVrK3Fj=s640-c-fcrop64=1,0000199affffe666-rw-nd-v1',
-                date: '2023-08-15'
-            },
-            {
-                type: 'photos',
-                title: 'Sibaq @ Kochi',
-                description: 'Fusão De Arte (Sibaq Promo Event ) Live Art | @shiyas_ahmad SIBAQ ‘25 A National Art Fest of DHIU Al- Hidaya Islamic Academy, Kalamassery  #sibaq#kochi',
-                tags: ['Sibaq @ Kochi'],
-                imgSrc: 'https://yt3.ggpht.com/-0f1dedfmvHYQkr0NNLhCkP6YAOpRzCOqyjy86HUAksw-LgSDZMtw72_pPCw2HXfZz2cSimKzZog68s=s640-c-fcrop64=1,00001111ffffeeee-rw-nd-v1',
-                date: '2024-12-02'
-            },
-              {
-                type: 'photos',
-                title: 'Sibaq @ Kochi',
-                description: 'Fusão De Arte (Sibaq Promo Event ) Live Art | @shiyas_ahmad SIBAQ ‘25 A National Art Fest of DHIU Al- Hidaya Islamic Academy, Kalamassery  #sibaq#kochi',
-                tags: ['Sibaq @ Kochi'],
-                imgSrc: 'https://yt3.ggpht.com/aXHev0Mj4zPboxZ9ECE7L-LSGW2h8SWy2-SvreAPgwu5hRNaBiCAsg_infTRBdZCtVYn-eue8dAK=s640-c-fcrop64=1,00001111ffffeeee-rw-nd-v1',
-                date: '2024-12-02'
-            },
-            {
-                type: 'photos',
-                title: 'Sibaq @ Kochi',
-                description: 'Fusão De Arte (Sibaq Promo Event ) Live Art | @shiyas_ahmad SIBAQ ‘25 A National Art Fest of DHIU Al- Hidaya Islamic Academy, Kalamassery  #sibaq#kochi',
-                tags: ['Sibaq @ Kochi'],
-                imgSrc: 'https://yt3.ggpht.com/gEKDAtZAz3u7cOByd-57gdwP5VV2XvGiFcZ2tZt_qhIBKpGaqZNE7vaJfhhACnXGtriXsSVgGNJK=s640-c-fcrop64=1,00001111ffffeeee-rw-nd-v1',
-                date: '2024-12-02'
-            },
-            {
-                type: 'photos',
-                title: 'Sibaq @ Kochi',
-                description: 'Fusão De Arte (Sibaq Promo Event ) Live Art | @shiyas_ahmad SIBAQ ‘25 A National Art Fest of DHIU Al- Hidaya Islamic Academy, Kalamassery  #sibaq#kochi',
-                tags: ['Sibaq @ Kochi'],
-                imgSrc: 'https://yt3.ggpht.com/eHKnuv-JXPniF_j82qI1qKO0cevNHg04RfhZq2KDdafvj5Qdw6aJarj4Jm-gnOVqAJ7rScmUlt0nWw=s640-c-fcrop64=1,00001111ffffeeee-rw-nd-v1',
-                date: '2024-12-02'
-            },
+</div>
 
-            {
-                type: 'photos',
-                title: 'Sibaq @ Kochi',
-                description: 'Fusão De Arte (Sibaq Promo Event ) Live Art | @shiyas_ahmad SIBAQ ‘25 A National Art Fest of DHIU Al- Hidaya Islamic Academy, Kalamassery  #sibaq#kochi',
-                tags: ['Sibaq @ Kochi'],
-                imgSrc: 'https://yt3.ggpht.com/am9K4Jo4XziuTtgXIvX0arFqfBRm--m19JLDtS71lr4hPao6Kp6VNWVYKslttzIoiZk0BBs75i9nbg=s640-c-fcrop64=1,00001111ffffeeee-rw-nd-v1',
-                date: '2024-12-02'
-            },
-
-            {
-                type: 'photos',
-                title: 'Sibaq @ Kochi',
-                description: 'Fusão De Arte (Sibaq Promo Event ) Live Art | @shiyas_ahmad SIBAQ ‘25 A National Art Fest of DHIU Al- Hidaya Islamic Academy, Kalamassery  #sibaq#kochi (Painting by Hisham Azhari)',
-                tags: ['Sibaq @ Kochi'],
-                imgSrc: 'https://yt3.ggpht.com/Vx5RNvZc3l0E_9P1HnLM0oE3D_LUn1vYN9uVu56dpCXSWj0zRKvIh0JfThiMHG3cvKeHgbmNehPY=s640-c-fcrop64=1,00001111ffffeeee-rw-nd-v1',
-                date: '2024-12-02'
-            },
-            {
-                type: 'photos',
-                title: 'Sibaq @ Kochi',
-                description: 'Fusão De Arte (Sibaq Promo Event ) Live Art | @shiyas_ahmad SIBAQ ‘25 A National Art Fest of DHIU Al- Hidaya Islamic Academy, Kalamassery  #sibaq#kochi',
-                tags: ['Sibaq @ Kochi'],
-                imgSrc: 'https://yt3.ggpht.com/lL0vnQGnLdCjO6FeNAef36W0__MJqRehDw0hKcTpEYaVFABoWH-dYkWl8PoT3MBpkAo-sjZJRmgiCw=s640-c-fcrop64=1,00001111ffffeeee-rw-nd-v1',
-                date: '2024-12-02'
-            },
-            {
-                type: 'photos',
-                title: 'Sibaq @ Kochi',
-                description: 'Fusão De Arte (Sibaq Promo Event ) Live Art | @shiyas_ahmad SIBAQ ‘25 A National Art Fest of DHIU Al- Hidaya Islamic Academy, Kalamassery  #sibaq#kochi',
-                tags: ['Sibaq @ Kochi'],
-                imgSrc: 'https://yt3.ggpht.com/nfNg2RfHxKVmkXe0J6_AjJPlS_UZHwwYqT3_CNQc-G3_Cgny4IVXklrDlr_4QzYe-TahVkWAh9CVlg=s640-c-fcrop64=1,00001111ffffeeee-rw-nd-v1',
-                date: '2024-12-02'
-            },
-            {
-                type: 'photos',
-                title: 'Sibaq @ Kochi',
-                description: 'Fusão De Arte (Sibaq Promo Event ) Live Art | @shiyas_ahmad SIBAQ ‘25 A National Art Fest of DHIU Al- Hidaya Islamic Academy, Kalamassery  #sibaq#kochi',
-                tags: ['Sibaq @ Kochi'],
-                imgSrc: 'https://yt3.ggpht.com/DtmYXqKeSWAoIyn55Ht2Xe6-_v3671JdKbIYi8JkUb3hobstPNIuUKLGt2eaW_620pqaIEbVBSBX=s640-c-fcrop64=1,00001111ffffeeee-rw-nd-v1',
-                date: '2024-12-02'
-            },
-            {
-                type: 'photos',
-                title: 'Sibaq @ Kochi',
-                description: 'Fusão De Arte (Sibaq Promo Event ) Live Art | @shiyas_ahmad SIBAQ ‘25 A National Art Fest of DHIU Al- Hidaya Islamic Academy, Kalamassery  #sibaq#kochi',
-                tags: ['Sibaq @ Kochi'],
-                imgSrc: 'https://yt3.ggpht.com/2qiAqvlu-00ELoBUnWYgXkFA7RtAbskG-5CCEnEvPHJ7YpjM1kSjC2RykHqplFcuhw2ChmoRAi29AQ=s640-c-fcrop64=1,00001111ffffeeee-rw-nd-v1',
-                date: '2024-12-02'
-            },
-            {
-                type: 'photos',
-                title: 'Sibaq @ Kochi',
-                description: 'Fusão De Arte (Sibaq Promo Event )  Live Art | @shiyas_ahmad SIBAQ ‘25 A National Art Fest of DHIU  Al- Hidaya Islamic Academy, Kalamassery',
-                tags: ['Sibaq @ Kochi'],
-                imgSrc: 'https://yt3.ggpht.com/awNN5maqNiRvaF5KB6a7PvFeNX7FuhEXEUsQkdQxKLNO6c1qUQ7Iesb9WQoRwkRU0ZG_Z9ZCn3D8=s640-c-fcrop64=1,00001111ffffeeee-rw-nd-v1',
-                date: '2024-12-02'
-            },
-            {
-                type: 'photos',
-                title: 'Sibaq @ Kochi',
-                description: 'Fusão De Arte (Sibaq Promo Event ) Live Art | @shiyas_ahmad SIBAQ ‘25 A National Art Fest of DHIU Al- Hidaya Islamic Academy, Kalamassery  #sibaq#kochi',
-                tags: ['Sibaq @ Kochi'],
-                imgSrc: 'https://yt3.ggpht.com/ZYy7QjSOO-d9ycMcHKFUMojKDGBlE4xYay8fYpllB_c5LEX9G798BXU3i7Qhi7TICNJIcgsIs3Aj=s640-c-fcrop64=1,00001111ffffeeee-rw-nd-v1',
-                date: '2024-12-02'
-            },
-            {
-                type: 'posters',
-                title: 'Sibaq @ Kochi',
-                description: 'Thakathub A Workshop for Writing Excellence  SIBAQ ‘25 A National Art Fest of DHIU  Al- Hidaya Islamic Academy, Kalamassery',
-                tags: ['Sibaq @ Kochi'],
-                imgSrc: 'https://yt3.ggpht.com/JWTfYYmPcB3mOaFo6Cwbjjx_7IgLtPI3V87qM66FlQuFJahhbMNJie8zEdCo8Q3vmvYcslr332Dz5g=s640-c-fcrop64=1,0000199affffe666-rw-nd-v1',
-                date: '2024-12-02'
-            },
-            {
-                type: 'posters',
-                title: 'Sibaq @ Kochi',
-                description: 'Fusão De Arte (Sibaq Promo Event )   Live Art | @shiyas_ahmad SIBAQ ‘25 A National Art Fest of DHIU  Al- Hidaya Islamic Academy, Kalamassery  #sibaq#koch',
-                tags: ['Sibaq @ Kochi'],
-                imgSrc: 'https://yt3.ggpht.com/etMr11wVCVgfrNvw8JAx0-9XcCTtEgA_upjCxkrheF4whVaxYtbx0AcLRt-sRyOHQLgwNaSUT_eL=s640-c-fcrop64=1,00001375ffffe041-rw-nd-v1',
-                date: '2024-12-02'
-            },
-            {
-                type: 'posters',
-                title: 'LASTABISHI',
-                description: 'LASTABSHI (Al-arts fest 2024 ) WORKING COMMITTE',
-                tags: ['LASTABISHI'],
-                imgSrc: 'https://yt3.ggpht.com/gRqgN3RKzvQOUZiKIeSu5WOt4GF7PHwnLwj3aFh4-M08Exb-FpCj9Wwj2HAA4fA91wB0WtEkdQfOByM=s640-c-fcrop64=1,000004befffffb41-rw-nd-v1',
-                date: '2024-10-04'
-            },
-            {
-                type: 'posters',
-                title: 'LASTABISHI',
-                description: 'LASTABSHI (Al-arts fest 2024 ) MEDIA CREW',
-                tags: ['LASTABISHI'],
-                imgSrc: 'https://yt3.ggpht.com/ce4PyFRELiXE9WoBl27BJGl6eLdks-oNM_fFWyaPj3iOgzcOri0Uwjh7F5cZFTAMpdCol_WAS_fl=s640-c-fcrop64=1,00001111ffffeeee-rw-nd-v1',
-                date: '2024-10-04'
-            },
-             {
-                type: 'posters',
-                title: 'LASTABISHI',
-                description: 'LASTABSHI (Al-arts fest 2024 ) TEAM MANAGERS',
-                tags: ['LASTABISHI'],
-                imgSrc: 'https://yt3.ggpht.com/K_9uJDNQhJdGAgZ-itnATMp7U6Yf0zBKUTv_SoPra359zabGqHmyOtgJNylH1ZM1Ne3VO983LLmXQA=s640-c-fcrop64=1,00001111ffffeeee-rw-nd-v1',
-                date: '2024-10-04'
-            },
-               {
-                type: 'posters',
-                title: 'LASTABISHI',
-                description: 'LASTABSHI (Al-arts fest 2024 ) TEAM MANAGERS',
-                tags: ['LASTABISHI'],
-                imgSrc: 'https://yt3.ggpht.com/UvrkzHB0VIliqaJT9dSfgXn-eeuq8aDuF_vQiiTsy7L9X9fOJ1gfPaiSJW-eASNPoX1sv8jxOGDC5w=s640-c-fcrop64=1,00001111ffffeeee-rw-nd-v1',
-                date: '2024-10-04'
-            },
-             {
-                type: 'posters',
-                title: 'LASTABISHI',
-                description: 'LASTABSHI (Al-arts fest 2024 ) TEAM MANAGERS',
-                tags: ['LASTABISHI'],
-                imgSrc: 'https://yt3.ggpht.com/GFDHPiVT6OKmvpMXTDpQx_1yed_c_FJDuOg7KqOX7w_hm-7r8eXP4bAu1ulcU_-KBjlHw3ENv5KZgQ=s640-c-fcrop64=1,00001111ffffeeee-rw-nd-v11',
-                date: '2024-10-04'
-            },
-                      {
-                type: 'posters',
-                title: 'LASTABISHI',
-                description: 'LASTABSHI ( Al-hidaya arts fest 2024 ) INAUGURAL SESSION',
-                tags: ['LASTABISHI'],
-                imgSrc: 'https://yt3.ggpht.com/xl0pXhthD9qxyR26FC8JCCzhrmRBWlqFXO084nac4ihfOOz4WJEaB2Z6sUjHjAeyU8rFx050yg-FWC0=s640-c-fcrop64=1,00000869ffffe3d6-rw-nd-v1',
-                date: '2024-10-04'
-            },
-                        {
-                type: 'posters',
-                title: 'Motivation Talk',
-                description: 'Guest Talk |2024-25 |Huda Ahia |AL-Hidaya Islamic Academy,Kalamassery',
-                tags: ['Motivation Talks'],
-                imgSrc: 'https://yt3.ggpht.com/vXNYOic3SmERCd-JX7MD_JOzeqy14Mqbgxjs5oOXHIMQUCDpaR5x0-0dO_4N5kLclXEacrMgOAP-2A=s640-c-fcrop64=1,0000199affffe666-rw-nd-v1',
-                date: '2024-05-24'
-            },
-                          {
-                type: 'posters',
-                title: 'Guest Talk',
-                description: 'Guest Talk|2024-25 |Huda Ahia |AL-Hidaya Islamic Academy,Kalamassery',
-                tags: ['Guest Talks'],
-                imgSrc: 'https://yt3.ggpht.com/UUNN4Yh0jN2GTdzLw14qFVd_TdycDhxO6E0vV4n1_LkhANtVbDFXJ-rDsM0z5SSP-tjwDzZOivIKpg=s640-c-fcrop64=1,0000199affffe666-rw-nd-v1',
-                date: '2024-05-06'
-            },
-                                  {
-                type: 'posters',
-                title: 'AL-Ifthithah 2024-25',
-                description: 'AL-Ifthithah 2024-25 |Huda Ahia |AL-Hidaya Islamic Academy,Kalamassery',
-                tags: ['AL-Ifthithah'],
-                imgSrc: 'https://yt3.ggpht.com/ofDtGeUY-0lyma718iBTTZP8Mwt4qn0YuO3o7r6u0jO4pR72xJWcjLM2Q3D6SREemPPAg8JkEmeI=s640-c-fcrop64=1,0000199affffe666-rw-nd-v1',
-                date: '2024-05-01'
-            },
-                                     {
-                type: 'posters',
-                title: 'Social Affairs',
-                description: 'kuliru 2024-25 |Huda Ahia |AL-Hidaya Islamic Academy,Kalamassery. #summer#islamic#kochi#drinks',
-                tags: ['Social Affairs'],
-                imgSrc: 'https://yt3.ggpht.com/T1fMQLix21WH787Rf8-uIwXQIkfJoqTqJWu-6fMsqLf5NwocvovICPMydzkHun1lBPUID6LB-6rs8xY=s640-c-fcrop64=1,0000199affffe666-rw-nd-v1',
-                date: '2024-05-15'
-            },
-                                         {
-                type: 'posters',
-                title: 'Dulhijju Seminar',
-                description: 'Dulhijju Seminar | SKSSF WINGDS | Huda 2023-24 | AL HIDAYA ISLAMIC ACADEMY, KALAMASSERY | #huda_ahia',
-                tags: ['Dulhijju Special'],
-                imgSrc: 'https://yt3.ggpht.com/H5_yrpjR-TxwRFgrhhs72-pHAee4xnIEc3S5jO_zwQo_Gfan8Vdj0kX6laL0OhO6LywXvbVoaMnDbg=s640-c-fcrop64=1,0000199affffe666-rw-nd-v1',
-                date: '2023-06-25'
-            },
-        
-            {
-                type: 'posters',
-                title: 'Core Committee, HUDA',
-                description: 'Photos of the core committee members & advisory board members',
-                tags: ['2025-26 core comittee'],
-                imgSrc: 'https://yt3.ggpht.com/FNON1-RfZwUo69yyWEp1dzdD1DRdZSWGpNnKEpjpwHEbxLc8jefxXk5Qrein-E3lhB_6fHeHeh9r=s640-c-fcrop64=1,0000199affffe666-rw-nd-v1',
-                date: '2025-05-04'
-            },
-            {
-                type: 'posters',
-                title: 'Working Committee, HUDA',
-                description: 'Photos of the Working committee members (SRDB, FINE ARTS, LIBRARY, SOCIAL AFFAIRS, PUBLISHING BUREAU, SKSSF)',
-                tags: ['2025-26 core comittee'],
-                imgSrc: 'https://yt3.ggpht.com/SdYOszC-0F7e2QJC_b8A_UkvW0fgJu2dDU_8dMcWhgHVZTaDOLKKDZEqTlCzT0bqiS5W1mHjSiBF9Q=s640-c-fcrop64=1,0000051fffffc51e-rw-nd-v1',
-                date: '2025-05-04'
-            },
-            {
-                type: 'posters',
-                title: 'Sibaq @ Kochi',
-                description: 'INAUGURAL CEREMONY Le Sibaq De Kochi   SIBAQ ‘25 A National Art Fest of DHIU   Al- Hidaya Islamic Academy, Kalamassery  #sibaq#kochi',
-                tags: ['Sibaq @ Kochi'],
-                imgSrc: 'https://yt3.ggpht.com/J7HduQCDm-kaHJquuW8Ruguzh53HDHZ8W3GayQCh8b8GLYIwU5q-fHyk6sHEKmoVr3cjswTgch3z9w=s640-c-fcrop64=1,00002582ffffda7d-rw-nd-v1',
-                date: '2024-12-02'
-            },
-            {
-                type: 'posters',
-                title: 'Sibaq @ Kochi',
-                description: 'INAUGURAL CEREMONY Le Sibaq De Kochi   Inauguration P.RAJEEV(Minister for Industries, Law and Coir, Kerala)   SIBAQ ‘25 A National Art Fest of DHIU   Al- Hidaya Islamic Academy, Kalamassery   #sibaq#kochi',
-                tags: ['Sibaq @ Kochi'],
-                imgSrc: 'https://yt3.ggpht.com/wf-OVKAZzs0j0S-0nkh26g80-6VBjV94HyGXQZxqXolucP2BlXOZcp9KYAywcPxTPVg8_WoUcn1QLw=s640-c-fcrop64=1,0000199affffe666-rw-nd-v1',
-                date: '2024-12-02'
-            },
-            {
-                type: 'posters',
-                title: 'Sibaq @ Kochi',
-                description: 'INAUGURAL CEREMONY Le Sibaq De Kochi    SIBAQ ‘25 A National Art Fest of DHIU   Chief Guest Dr. M.C DILEEP KUMAR Prof. Dr. ZAKKARIYA K.A   Al- Hidaya Islamic Academy, Kalamassery  #sibaq#kochi',
-                tags: ['Sibaq @ Kochi'],
-                imgSrc: 'https://yt3.ggpht.com/mn9qh1MdaSuMpaBswV8zIn7wHJ52HOiw0OFaFD0iSMfpzHc1eJ9xPEePhOjiofW_uJ8RjUV_Cyr3VA=s640-c-fcrop64=1,00002f1afffffbe6-rw-nd-v1',
-                date: '2024-12-02'
-            },
-            {
-                type: 'posters',
-                title: 'Sibaq @ Kochi',
-                description: 'INAUGURAL CEREMONY Le Sibaq De Kochi    SIBAQ ‘25 A National Art Fest of DHIU   Cultural DIscourse SWAMI BHUVANATHMANANTHA FATHER Dr. VINCENT KUNDUKULAM P. K SULAIMAN MOULAVI M.F.B   Al- Hidaya Islamic Academy, Kalamassery  #sibaq#kochi',
-                tags: ['Sibaq @ Kochi'],
-                imgSrc: 'https://yt3.ggpht.com/vwOyzXWF-ez6HP8lL73ier7yqMKcyK6Cve_9XQA5aXgEURJTZK9_gQjzQDstwJLq7cVNLcBMPPGkfKM=s640-c-fcrop64=1,00003333ffffffff-rw-nd-v1',
-                date: '2024-12-02'
-            },
-            {
-                type: 'posters',
-                title: 'Sibaq @ Kochi',
-                description: 'INAUGURAL CEREMONY Le Sibaq De Kochi  SIBAQ ‘25 A National Art Fest of DHIU  Al- Hidaya Islamic Academy, Kalamassery',
-                tags: ['Sibaq @ Kochi'],
-                imgSrc: 'https://yt3.ggpht.com/_qpdZLaDtB9ZIKQGFQioyuUyIrjhqjiQDgmsL76O-4gsQz6b_me1YP4OvhteeH7g3Iu3u01bhqlz=s640-c-fcrop64=1,0000199affffe666-rw-nd-v1',
-                date: '2024-12-02'
-            },
-            {
-                type: 'posters',
-                title: 'Sibaq @ Kochi',
-                description: 'THEME SONG LAUNCHING Le Sibaq De Kochi  SIBAQ ‘25 A National Art Fest of DHIU  Al- Hidaya Islamic Academy, Kalamassery  #sibaq#kochi',
-                tags: ['Sibaq @ Kochi'],
-                imgSrc: 'https://yt3.ggpht.com/2kL5NQMiyi--lS6CeHF3gS6u77VHD-PWRxpr6AEmYjddXavQ8FyDlaiw_Bzih-Tmmi5EtlIKCZPj3w=s640-c-fcrop64=1,0000199affffe666-rw-nd-v1',
-                date: '2024-12-02'
-            },
-            {
-                type: 'posters',
-                title: 'Sibaq @ Kochi',
-                description: 'Thakathub A Workshop for Writing Excellence  SIBAQ ‘25 A National Art Fest of DHIU  Al- Hidaya Islamic Academy, Kalamassery',
-                tags: ['Sibaq @ Kochi'],
-                imgSrc: 'https://yt3.ggpht.com/BklNqz29ucTU303NLpEM2ShsTJHUVGBW_xJCEiHUTehReytLKhOZos0UfZDfK36NccbaQ4tcja3ftw=s640-c-fcrop64=1,000009d9fffff626-rw-nd-v1',
-                date: '2024-12-02'
-            },
-            {
-                type: 'posters',
-                title: 'Sibaq @ Kochi',
-                description: 'Fusão De Arte (Sibaq Promo Event )   Live Art | @shiyas_ahmad SIBAQ ‘25 A National Art Fest of DHIU  Al- Hidaya Islamic Academy, Kalamassery  #sibaq#kochi',
-                tags: ['Sibaq @ Kochi'],
-                imgSrc: 'https://yt3.ggpht.com/Hfgc1O8i2nlD3tAyZqZQdvajHd5F12x77u2IOCew3v-49Lknu6Rrgev1aRG91XLtyCpWxaziA2gyUvw=s640-c-fcrop64=1,0000199affffe666-rw-nd-v1',
-                date: '2024-12-02'
-            },
-          
-              {
-                type: 'posters',
-                title: 'Sibaq @ Kochi',
-                description: 'INAUGURAL CEREMONY Le Sibaq De Kochi  SIBAQ ‘25 A National Art Fest of DHIU  Al- Hidaya Islamic Academy, Kalamassery',
-                tags: ['Sibaq @ Kochi'],
-                imgSrc: 'https://yt3.ggpht.com/5U8UrtwYRlGg-raqR0eUgQjP9Tw-olQE5Mr_Uu9E1f7fJVWPApzdMJEyyUo7tnaRldPBInzzNAyNODw=s640-c-fcrop64=1,0000199affffe666-rw-nd-v1',
-                date: '2024-12-02'
-            },
-                {
-                type: 'posters',
-                title: 'paper presentation at Qatar',
-                description: 'AHIA Kalamassery 10 th class student Yaseen.K.A got elemintion to a paper presentation at Qatar',
-                tags: ['Achivements'],
-                imgSrc: './5_6138491332458452078.jpg',
-                date: '2025-05-15'
-            },    {
-                type: 'posters',
-                title: 'Talent Hunt',
-                description: 'AHIA Kalamassery 10th class student Swadakathullah.M.M got first prize at Suprabahatham Talent Hunt season 2',
-                tags: ['Achivements'],
-                imgSrc: '5_6138564389852156994.jpg',
-                date: '2025-05-15'
-            },
-            
-            {
-                type: 'videos',
-                title: 'Pastport',
-                description: 'pastport is a program which conducted by social affairs by asking questions about museum on world museum day. winners were taken to Kerala History museum, Kalamassery.',
-                tags: ['Social Affairs'],
-                videoSrc: './VID-20250521-WA0044.mp4',
-                imgSrc: './Screenshot 2025-05-30 085204.png',
-                date: '2025-05-20'
-            }
-        ];
-
-        const cardContainer = document.getElementById('contentContainer');
-        const categoryButtons = document.querySelectorAll('.category__button');
-        const tagFilterButton = document.querySelector('.tag__filter__button');
-        const tagModal = document.getElementById('tagModal');
-        const applyTagsButton = document.querySelector('.modal__button--apply');
-        const cancelButton = document.querySelector('.modal__button--cancel');
-        const tagCheckboxes = document.querySelectorAll('.tag__checkboxes input');
-        const navIcon = document.getElementById('navIcon');
-        const sidebar = document.getElementById('sidebar');
-        const mediaModal = document.getElementById('mediaModal');
-        const modalMediaContainer = document.getElementById('modalMediaContainer');
-        const modalDescription = document.getElementById('modalDescription');
-        const fullscreenButton = document.querySelector('.modal__button--fullscreen');
-        const exitButton = document.querySelector('.modal__button--exit');
-
-        function renderCards(data) {
-            cardContainer.innerHTML = '';
-            const sortedData = [...data].sort((a, b) => new Date(b.date) - new Date(a.date));
-            
-            sortedData.forEach(item => {
-                const card = document.createElement('article');
-                card.className = 'card__article';
-                
-                const mediaElement = item.type.toLowerCase() === 'videos' 
-                    ? `<div class="card__media-container"><video src="${item.videoSrc}" class="card__video" poster="${item.imgSrc}" controls muted loading="lazy"></video></div>`
-                    : `<div class="card__media-container"><img src="${item.imgSrc}" alt="${item.title}" class="card__img" loading="lazy"></div>`;
-                
-                card.innerHTML = `
-                    ${mediaElement}
-                    <div class="card__data">
-                        <span class="card__description">${item.type}</span>
-                        <h6 class="card__title">${item.title}</h6>
-                        <span>Tags: ${item.tags.join(', ')}</span>
-                        <div>
-                            <button class="card__view__image" data-type="${item.type}" data-img="${item.imgSrc}" data-video="${item.videoSrc || ''}" data-title="${item.title}" data-desc="${item.description}" data-date="${item.date}" aria-label="View ${item.title} media">View Media</button>
-                        </div>
-                    </div>
-                `;
-                cardContainer.appendChild(card);
-            });
-
-            document.querySelectorAll('.card__view__image').forEach(button => {
-                button.addEventListener('click', handleViewMedia);
-            });
-        }
-
-        function handleViewMedia(event) {
-            const button = event.currentTarget;
-            const type = button.dataset.type.toLowerCase();
-            const title = button.dataset.title;
-            const desc = button.dataset.desc;
-            const date = button.dataset.date;
-            modalMediaContainer.innerHTML = '';
-            
-            if (type === 'videos') {
-                const video = document.createElement('video');
-                video.src = button.dataset.video;
-                video.className = 'image__modal__video';
-                video.controls = true;
-                video.muted = true;
-                video.setAttribute('aria-label', title);
-                video.setAttribute('loading', 'lazy');
-                modalMediaContainer.appendChild(video);
-            } else {
-                const img = document.createElement('img');
-                img.src = button.dataset.img;
-                img.alt = title;
-                img.className = 'image__modal__img';
-                img.setAttribute('loading', 'lazy');
-                modalMediaContainer.appendChild(img);
-            }
-            
-            modalDescription.textContent = `${desc} (Date: ${date})`;
-            openModal(mediaModal);
-        }
-
-        function openModal(modal) {
-            modal.style.display = 'flex';
-            const focusableButton = modal.querySelector('button');
-            if (focusableButton) focusableButton.focus();
-        }
-
-        function closeModal(modal) {
-            modal.style.display = 'none';
-            tagFilterButton.focus();
-            const video = modalMediaContainer.querySelector('video');
-            if (video) video.pause();
-        }
-
-        renderCards(contentData);
-
-        categoryButtons.forEach(button => {
-            button.addEventListener('click', handleCategoryClick);
-        });
-
-        function handleCategoryClick(event) {
-            categoryButtons.forEach(btn => btn.classList.remove('active'));
-            event.currentTarget.classList.add('active');
-            const category = event.currentTarget.dataset.category;
-            const filteredData = category === 'All' 
-                ? contentData 
-                : contentData.filter(item => item.type.toLowerCase() === category.toLowerCase());
-            renderCards(filteredData);
-            if (window.innerWidth <= 767) {
-                sidebar.classList.remove('active');
-            }
-        }
-
-        tagFilterButton.addEventListener('click', () => openModal(tagModal));
-
-        applyTagsButton.addEventListener('click', () => {
-            const selectedTags = Array.from(tagCheckboxes)
-                .filter(checkbox => checkbox.checked)
-                .map(checkbox => checkbox.value);
-            const activeCategory = document.querySelector('.category__button.active').dataset.category;
-            let filteredData = contentData;
-
-            if (activeCategory !== 'All') {
-                filteredData = filteredData.filter(item => item.type.toLowerCase() === activeCategory.toLowerCase());
-            }
-
-            if (selectedTags.length > 0) {
-                filteredData = filteredData.filter(item => 
-                    item.tags.some(tag => selectedTags.includes(tag))
-                );
-            }
-
-            renderCards(filteredData);
-            closeModal(tagModal);
-            if (window.innerWidth <= 767) {
-                sidebar.classList.remove('active');
-            }
-        });
-
-        cancelButton.addEventListener('click', () => {
-            closeModal(tagModal);
-            tagCheckboxes.forEach(checkbox => checkbox.checked = false);
-        });
-
-        tagModal.addEventListener('click', (e) => {
-            if (e.target === tagModal) {
-                closeModal(tagModal);
-                tagCheckboxes.forEach(checkbox => checkbox.checked = false);
-            }
-        });
-
-        navIcon.addEventListener('click', () => {
-            sidebar.classList.toggle('active');
-        });
-
-        fullscreenButton.addEventListener('click', () => {
-            const media = modalMediaContainer.querySelector('img') || modalMediaContainer.querySelector('video');
-            if (media) {
-                if (media.requestFullscreen) {
-                    media.requestFullscreen();
-                } else if (media.webkitRequestFullscreen) {
-                    media.webkitRequestFullscreen();
-                } else if (media.msRequestFullscreen) {
-                    media.msRequestFullscreen();
-                }
-            }
-        });
-
-        exitButton.addEventListener('click', () => {
-            closeModal(mediaModal);
-            if (document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
-                if (document.exitFullscreen) {
-                    document.exitFullscreen();
-                } else if (document.webkitExitFullscreen) {
-                    document.webkitExitFullscreen();
-                } else if (document.msExitFullscreen) {
-                    document.msExitFullscreen();
-                }
-            }
-        });
-
-        mediaModal.addEventListener('click', (e) => {
-            if (e.target === mediaModal) {
-                closeModal(mediaModal);
-                if (document.fullscreenElement || document.webkitFullscreenElement || document.msFullscreenElement) {
-                    if (document.exitFullscreen) {
-                        document.exitFullscreen();
-                    } else if (document.webkitExitFullscreen) {
-                        document.webkitExitFullscreen();
-                    } else if (document.msExitFullscreen) {
-                        document.msExitFullscreen();
-                    }
-                }
-            }
-        });
-
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape') {
-                if (tagModal.style.display === 'flex') closeModal(tagModal);
-                if (mediaModal.style.display === 'flex') closeModal(mediaModal);
-                if (sidebar.classList.contains('active')) sidebar.classList.remove('active');
-            }
-        });
-
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            if (window.innerWidth > 767 && sidebar.classList.contains('active')) {
-                sidebar.classList.remove('active');
-            }
-        });
-    </script>
+<script src="script.js"></script>
 </body>
 </html>
