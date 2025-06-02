@@ -522,8 +522,6 @@ animation: mymove 5s alternate;
     .caption-container {
       margin-top: 20px;
       max-width: 500px;
-      position: relative;
-      left: 40px;
       width: 100%;
       text-align: center;
       min-height: 60px;
