@@ -395,6 +395,7 @@ nav .content .links{
       .form {
         padding: 40px;
         align-items: flex-start;
+        margin: auto;
       }
 
       .form h2 {
