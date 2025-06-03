@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Achivements</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"/>
+<style>
+    *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        outline: none;
+         font-family: "Poppins", sans-serif;
+         text-decoration: none;
+    }
+    .wrapper{
+  background-color: #fff;
+  box-shadow: 3px 3px 5px rgb(0,0,0,0.1);
+  position: fixed;
+  width: 100%;
+  z-index: 999;  
+  
+
+}
+.wrapper nav{
+  position: relative;
+  display: flex;
+  max-width: calc(100% - 200px);
+  margin: 0 auto;
+  height: 70px;
+  align-items: center;
+  justify-content: space-between;
+}
+nav .content{
+  display: flex;
+  align-items: center;
+}
+nav .content .links{
+  margin-left: 80px;
+  display: flex;
+}
+.content .logo a{
+  color: #333;
+  font-size: 30px;
+  font-weight: 600;
+}
+.links{
+  position: absolute;
+  right: 10px;
+}
+.content .links li{
+  list-style: none;
+  line-height: 70px;
+
+}
+.content .links li a,
+.content .links li label{
+  color: #333;
+  font-size: 18px;
+  font-weight: 500;
+  padding: 9px 17px;
+  transition: all 0.3s ease;
+  border-right: 1px solid #00000071;
+}
+
+.content .links li label{
+  display: none;
+}
+.content .links li a:hover,
+.content .links li label:hover{
+  background: #fff;
+}
+.wrapper .search-icon,
+.wrapper .menu-icon{
+  color: #333;
+  font-size: 18px;
+  cursor: pointer;
+  line-height: 70px;
+  width: 70px;
+  text-align: center;
+}
+.wrapper .menu-icon{
+  display: none;
+}
+.wrapper #show-search:checked ~ .search-icon i::before{
+  content: "\f00d";
+}
+.wrapper .search-box{
+  position: absolute;
+  height: 100%;
+  max-width: calc(100% - 50px);
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+}
+.wrapper #show-search:checked ~ .search-box{
+  opacity: 1;
+  pointer-events: auto;
+}
+.search-box input{
+  width: 100%;
+  height: 100%;
+  border: none;
+  outline: none;
+  font-size: 17px;
+  color: #333;
+  background: #171c24;
+  padding: 0 100px 0 15px;
+}
+.search-box input::placeholder{
+  color: #333;
+}
+.search-box .go-icon{
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  line-height: 60px;
+  width: 70px;
+  background: #fff;
+  border: none;
+  outline: none;
+  color: #333;
+  font-size: 20px;
+  cursor: pointer;
+}
+.wrapper input[type="checkbox"]{
+  display: none;
+}
+/* Dropdown Menu code start */
+.content .links ul{
+  position: absolute;
+  background: #fff;
+  top: 80px;
+  z-index: -1;
+  opacity: 0;
+  visibility: hidden;
+  box-shadow: 3px 3px 5px rgb(0,0,0,0.1);
+  border-radius: 0 0 10px 10px;
+
+
+}
+.content .links li:hover > ul{
+  top: 70px;
+  opacity: 1;
+  visibility: visible;
+  transition: all 0.3s ease;
+}
+.content .links ul li a{
+  display: block;
+  width: 100%;
+  line-height: 30px;
+  border-radius: 0px!important;
+}
+.content .links ul ul{
+  position: absolute;
+  top: 0;
+  right: calc(-100% + 8px);
+}
+.content .links ul li{
+  position: relative;
+}
+.content .links ul li:hover ul{
+  top: 0;
+}
+/* Responsive code start */
+@media screen and (max-width: 1250px) {
+  .wrapper nav {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+  nav .content .links {
+    margin-left: 30px;
+  }
+  .content .links li a {
+    padding: 8px 13px;
+  }
+  .wrapper .search-box {
+    max-width: calc(100% - 100px);
+  }
+  .wrapper .search-box input {
+    padding: 0 100px 0 15px;
+  }
+
+
+  
+
+}
+
+@media screen and (max-width: 900px) {
+  .wrapper .menu-icon {
+    display: block;
+  }
+  .wrapper #show-menu:checked ~ .menu-icon i::before {
+    content: "\f00d";
+  }
+  nav .content .links {
+    display: block;
+    position: fixed;
+    background: #fff;
+    height: 100%;
+    width: 100%;
+    max-width: 100%;
+    top: 70px;
+    left: -100%;
+    margin-left: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    padding-bottom: 100px;
+    transition: all 0.3s ease;
+  }
+  nav #show-menu:checked ~ .content .links {
+    left: 0%;
+  }
+  .content .links li {
+    margin: 15px 20px;
+  }
+  .content .links li a,
+  .content .links li label {
+    line-height: 40px;
+    font-size: 20px;
+    display: block;
+    padding: 8px 18px;
+    cursor: pointer;
+  }
+  .content .links li a.desktop-link {
+    display: none;
+  }
+  /* dropdown responsive code start */
+  .content .links ul,
+  .content .links ul ul {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    background: none;
+    max-height: 0px;
+    overflow: hidden;
+  }
+  .content .links #show-features:checked ~ ul,
+  .content .links #show-services:checked ~ ul,
+  .content .links #show-items:checked ~ ul {
+    max-height: 100vh;
+  }
+  .content .links ul li {
+    margin: 7px 20px;
+  }
+  .content .links ul li a {
+    font-size: 18px;
+    line-height: 30px;
+    border-radius: 5px!important;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .wrapper nav {
+    padding: 0 10px;
+  }
+  .content .logo a {
+    font-size: 27px;
+  }
+  .wrapper .search-box {
+    max-width: calc(100% - 70px);
+  }
+  .wrapper .search-box .go-icon {
+    width: 30px;
+    right: 0;
+  }
+  .wrapper .search-box input {
+    padding-right: 30px;
+  }
+}
+.dummy-text{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  z-index: -1;
+  padding: 0 20px;
+  text-align: center;
+  transform: translate(-50%, -50%);
+}
+.dummy-text h2{
+  font-size: 45px;
+  margin: 5px 0;
+}
+
+.content img{
+  height: 60px;
+  position: relative;
+  top: 5px;
+}
+
+
+.content .logoahia{
+  height: 55px;
+  position: relative;
+  left: -10px;
+}
+
+    body{
+        background-color: #f9f9f9;
+    }
+
+    .imgpro{
+        height: 350px;
+    }
+
+.parent {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: auto auto;
+    gap: 30px;
+    padding: 20px;
+}
+
+    
+    .card{
+        display: flex;
+        height: 350px;
+        background-color: white;
+        border-radius: 30px;
+        width: 600px;
+        gap: 30px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        color: #333;
+        position: relative;
+        top: 100px;
+        transition: 0.6s ease;
+    }
+    
+    .card:hover{
+        transform: translateY(-10px);
+    }
+
+    .textsss{
+        width: 80%;
+    }
+
+    .textsss h2{
+        font-size: 30px;
+    }
+
+    .iconsss{
+        position: relative;
+        top: 10px;
+    }
+
+    .iconsss button{
+        height: 40px;
+        width: 40px;
+        border-radius: 30px;
+        border: none;
+        background-color: black;
+        color: #fff;
+        font-size: 20px;
+        transition: 0.6s ease;
+        cursor: pointer;
+        position: relative;
+        top: 25px;
+    }
+
+    .iconsss button:hover{
+        transform: translateY(-5px);
+    }
+
+
+    .textsss label{
+        background: rgba(128, 128, 128, 0.226);
+        border-radius: 30px;
+        padding: 2px;
+        position: relative;
+        top: 10px;
+    }
+
+    span{
+        color: rgb(247, 175, 43);
+    }
+
+    .textsss h2{
+        font-size: 25px;
+        line-height: 0.9;
+       
+    }
+
+    .textsss{
+        position: relative;
+        top: 20px;
+    }
+
+    .textsss p{
+        position: relative;
+        top: 10px;
+        line-height: 1.2;
+    }
+
+
+    
+
+@media screen and (max-width: 1250px) {
+  .card {
+    flex-direction: column;
+    width: 90%;
+    height: auto;
+    align-items: center;
+  }
+
+  .imgpro {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+
+  .textside {
+    width: 100%;
+    padding: 20px;
+    box-sizing: border-box;
+  }
+
+  .textsss {
+    width: 100%;
+    text-align: center;
+  }
+
+  .textsss h2 {
+    font-size: 24px;
+  }
+
+  .textsss p {
+    font-size: 16px;
+  }
+
+  .iconsss {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 15px;
+  }
+
+  .iconsss button {
+    top: 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .parent {
+    grid-template-columns: 1fr;
+    padding: 0 10px;
+  }
+
+  .card {
+    width: 100%;
+  }
+
+  .textsss h2 {
+    font-size: 22px;
+  }
+
+  .textsss p {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .textsss h2 {
+    font-size: 20px;
+  }
+
+  .textsss p {
+    font-size: 13px;
+  }
+
+  .iconsss button {
+    width: 35px;
+    height: 35px;
+    font-size: 16px;
+  }
+
+  .logoahia {
+    height: 40px;
+  }
+
+  .imgpro {
+    max-height: 250px;
+  }
+}
+
+
+  
+</style>
+</head>
+<body>
+     <div class="wrapper">
+    <nav>
+      <input type="checkbox" id="show-search">
+      <input type="checkbox" id="show-menu">
+      <label for="show-menu" class="menu-icon"><i class="fas fa-bars"></i></label>
+      <div class="content">
+      <div class="logo"><a href="#"><img src="./ahia_logo-removebg-preview.png" class="logoahia"><img src="./huda ahia (1).png"></a></div>
+        <ul class="links">
+          <li><a href="#">Home</a></li>
+          <li>
+            <a href="#" class="desktop-link">Gallery</a>
+            <input type="checkbox" id="show-features">
+            <label for="show-features">Gallery</label>
+            <ul>
+              <li><a href="./imggallery.html">Image Gallery</a></li>
+              <li><a href="./imggallery.html">Video Gallery</a></li>
+              <li><a href="./imggallery.html">Poster Gallery</a></li>
+            </ul>
+          </li>
+              <li>
+            <a href="#" class="desktop-link">More</a>
+            <input type="checkbox" id="show-services">
+            <label for="show-services">More</label>
+            <ul>
+              <li><a href="#">Classes</a></li>
+              <li><a href="usthad.html">Usthads</a></li>
+              <li><a href="./achive.html">Achivements</a></li>
+              <li>
+                <a href="#" class="desktop-link">More</a>
+                <input type="checkbox" id="show-items">
+                <label for="show-items">More</label>
+                <ul>
+                  <li><a href="#">Admission</a></li>
+                  <li><a href="#">Art Fests</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href="#" class="desktop-link">About US</a>
+            <input type="checkbox" id="show-features">
+            <ul>
+              <li><a href="about.html">History</a></li>
+              <li><a href="about.html">Message</a></li>
+              <li><a href="about.html">Mission & Vision</a></li>
+          </li>
+
+        </ul>
+                   <li><a href="contact.html">Contact US</a></li>              
+
+      </div>
+    </nav>
+  </div>
+
+
+
+    <div class="div parent">
+        <div class="card">
+            <div class="imgside">
+                <img src="https://www.ahia.in/5_6138491332458452078.jpg" class="imgpro">
+            </div>
+
+            <div class="textside">
+                <div class="textsss">
+<h2>Yaseen <span>perumbavoor</span></h2>
+<label>Qatar Debate</label>
+<p>Yasin Muhammed Perumbavoor, a beloved final year degree student of Al Hidaya Islamic Academy, presented a paper at the Water International Debate Conference.</p>
+                </div>
+                <div class="iconsss">
+
+<a href=""><button><i class="fa-brands fa-instagram"></i></button></a>
+<a href=""><button><i class="fa-brands fa-facebook"></i></button></a>
+<a href=""><button><i class="fa-brands fa-whatsapp"></i></button></a>
+
+
+
+                </div>
+            </div>
+        </div>
+
+<div class="card">
+            <div class="imgside">
+                <img src="https://www.ahia.in/5_6138564389852156994.jpg" class="imgpro" style="width: 300px;">
+            </div>
+
+            <div class="textside">
+                <div class="textsss">
+<h2>Swadakathullah <span>kothamangalam</span></h2>
+<label>Talent Hunt Season 2</label>
+<p>Swadakathullah kothamangalam, a beloved final year degree student of Al Hidaya Islamic Academy who won the First position in three competitive categories in the Suprabhatham Talent Hunt Season 2!</p>
+                </div>
+                <div class="iconsss">
+
+<a href=""><button><i class="fa-brands fa-instagram"></i></button></a>
+<a href=""><button><i class="fa-brands fa-facebook"></i></button></a>
+<a href=""><button><i class="fa-brands fa-whatsapp"></i></button></a>
+
+
+
+                </div>
+            </div>
+        </div>
+
+        
