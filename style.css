@@ -57,6 +57,7 @@ background-color: #2062AD;
    justify-content: center;
    position: relative;
    top: 60px;
+   z-index:1000;
  }
 
  .donate{
