@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic</title>
+    <style>
+        :root {
+            --primary-color: #004d99;
+            --secondary-color: #003366;
+            --accent-color: #0077cc;
+            --light-bg: #f0f5ff;
+            --text-dark: #333;
+            --text-light: #fff;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-light);
+            text-align: center;
+            padding: 30px 20px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        header h1 {
+            font-size: 2rem;
+            letter-spacing: 0.5px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            background-color: var(--secondary-color);
+            padding: 15px 10px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: var(--transition);
+        }
+        
+        nav a:hover {
+            background-color: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 25px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            background-color: #fff;
+            transition: var(--transition);
+        }
+        
+        .section:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .section h3 {
+            color: var(--secondary-color);
+            margin: 20px 0 10px;
+            font-size: 1.4rem;
+        }
+        
+        ul, ol {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .highlight {
+            background-color: rgba(0,77,153,0.1);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin: 15px 0;
+            border-left: 4px solid var(--accent-color);
+        }
+        
+        .calendar-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+        
+        .calendar-table th, .calendar-table td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: left;
+        }
+        
+        .calendar-table th {
+            background-color: var(--primary-color);
+            color: var(--text-light);
+        }
+        
+        .faculty-list, .facility-list {
+            list-style-type: none;
+        }
+        
+        .faculty-list li, .facility-list li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+        
+        .faculty-list li::before, .facility-list li::before {
+            content: "•";
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            position: relative;
+            width: 100%;
+            margin-top: 50px;
+        }
+        
+        footer p {
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                margin: 15px;
+            }
+            
+            header h1 {
+                font-size: 1.5rem;
+            }
+            
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav a {
+                margin: 5px;
+                padding: 6px 12px;
+            }
+            
+            .section {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Academic</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="academic.html">Academics</a>
+        <a href="about.html">About</a>
+        <a href="admission.html">Admission</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <div class="container">
+        <div class="section">
+            <h2>Academic Overview</h2>
+            <p>At Al Hidaya Islamic Academy, we are committed to providing a holistic education that integrates traditional Islamic sciences with modern academic disciplines. Our academic framework is designed to foster intellectual growth, moral values, and professional skills.</p>
+        </div>
+
+        <div class="section">
+            <h2>Academic Programs</h2>
+            <div class="highlight">
+                <h3>Courses Offered</h3>
+                <ul>
+                    <li><strong>Hudawi</strong> - Advanced Islamic Studies and Theology</li>
+                    <li><strong>Zahrawiya</strong> - Arabic Language and Literature</li>
+                    <li><strong>Hifz</strong> - Quranic Memorization and Recitation</li>
+                    <li><strong>Mahdiya</strong> - Islamic Jurisprudence and Fiqh</li>
+                </ul>
+                <p>These programs cater to students from various educational backgrounds, offering both undergraduate and postgraduate levels with a focus on Islamic scholarship and contemporary education.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Faculty</h2>
+            <div class="highlight">
+                <ul class="faculty-list">
+                    <li>Dr. Ahmad Khan - Head of Islamic Studies (Hudawi)</li>
+                    <li>Prof. Fatima Zahra - Arabic Literature (Zahrawiya)</li>
+                    <li>Shaykh Ismail - Quranic Sciences (Hifz)</li>
+                    <li>Dr. Yusuf Ali - Jurisprudence (Mahdiya)</li>
+                </ul>
+                <p>Our faculty comprises experienced scholars and educators dedicated to mentoring students in their academic and spiritual journeys.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Research</h2>
+            <p>Al Hidaya Islamic Academy encourages research in Islamic studies, comparative religion, and educational methodologies. Students and faculty collaborate on projects to contribute to global Islamic scholarship.</p>
+            <ul>
+                <li>Ongoing Research: Islamic Education in the Digital Age</li>
+                <li>Publications: Annual AHIA Research Journal</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Facilities</h2>
+            <div class="highlight">
+                <ul class="facility-list">
+                    <li>State-of-the-art Library with Islamic and Modern Texts</li>
+                    <li>Digital Learning Labs</li>
+                    <li>Hostel Accommodation for Students</li>
+                    <li>Prayer Halls and Meditation Rooms</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Academic Calendar 2025-26</h2>
+            <table class="calendar-table">
+                <thead>
+                    <tr>
+                        <th>Event</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Orientation Day</td><td>July 15, 2025</td></tr>
+                    <tr><td>Semester Start</td><td>July 20, 2025</td></tr>
+                    <tr><td>Mid-Term Exams</td><td>October 10-15, 2025</td></tr>
+                    <tr><td>Winter Break</td><td>December 20, 2025 - January 5, 2026</td></tr>
+                    <tr><td>Final Exams</td><td>March 1-10, 2026</td></tr>
+                    <tr><td>Result Declaration</td><td>March 20, 2026</td></tr>
+                </tbody>
+            </table>
+            <p class="notice">Note: Dates are subject to change. Check the official Al Hidaya Islamic Academy notice board for updates.</p>
+        </div>
+    </div>
+    <footer>
+        <p>© 2025 Al Hidaya Islamic Academy. All rights reserved.</p>
+    </footer>
+</body>
+</html>
