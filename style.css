@@ -651,6 +651,7 @@ background-color: #2062AD;
       width: 100%;
       position: relative;
       flex-shrink: 0;
+      height: 410px;
     }
 
     .activity-slide img {
@@ -676,6 +677,7 @@ background-color: #2062AD;
       backdrop-filter: blur(8px);
       color: #2062AD;
       font-size: 28px;
+      z-index: 1;
       font-weight: 500;
       cursor: pointer;
       text-decoration: none;
@@ -1047,15 +1049,16 @@ marquee {
 }
 
 .read-more-button {
-  margin-top: 24px;
-  position: static;
+  margin-top: 1px;
+  position: absolute;
   width: auto;
+  z-index: 1000;
   height: auto;
   padding: 12px 40px;
   border-radius: 15px;
   border: none;
-  background-color: #2062AD;
-  color: #fff;
+  background-color: #fff;
+  color: #0056b3;
   font-size: 20px;
   font-weight: 500;
   cursor: pointer;
@@ -1064,11 +1067,12 @@ marquee {
   align-items: center;
   justify-content: center;
   transition: background 0.3s, transform 0.3s;
-  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.08);
+  box-shadow: 0 4px 6px -1px rgba(0,0,0,0.20);
 }
 
 .read-more-button:hover {
-  background-color: #163f7f;
+  background-color: #0056b3;
+  color: #fff;
 }
 
 .card-description {
