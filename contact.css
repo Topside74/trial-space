@@ -1,4 +1,347 @@
-.wrapper{
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      text-decoration: none;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f1f1f1;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;   /* Make body a column flex container */
+      justify-content: flex-start;
+      align-items: center;
+      padding: 20px 1px 20px 1px;
+    }
+      header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-light);
+            text-align: center;
+            padding: 30px 20px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        header h1 {
+            font-size: 2rem;
+            letter-spacing: 0.5px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            background-color: var(--secondary-color);
+            padding: 15px 10px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: var(--transition);
+        }
+        
+        nav a:hover {
+            background-color: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+     .msnvs h1{
+            Font: 'Poppins';
+            height: 500%;
+            Size:100px;
+            font-size: 4px;
+            line-height: 100%;
+            Letter-spacing: 0%;
+            align-items: center;
+            text-align: center;
+        }
+
+
+        .msnvs h1 span{
+            color: #2062AD;
+        }
+        .msnvs .box{
+            Width:1280px;
+            Height:392px;
+            Top:2299px;
+            Left:80px;
+        }
+        
+        .mv-container {
+            
+        }
+        .mission, .vision {
+            flex: 1;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 13px;
+            text-align: center;
+        }
+        .mission {
+        width: 542px;
+        height: 309px;
+        top: 2347px;
+        left: 131px;
+        text-align: center;
+        align-items: center;
+        background-color: #e2e0e0;
+        }
+        .vision {
+        padding-top: 12px;
+        width: 542px;
+        height: 309px;
+        top: 2347px;
+        left: 131px;
+        text-align: center;
+        align-items: center;
+        background-color: #e2e0e0;
+        }
+        .mission, .vision p, h2{
+          padding-top: 22px;
+          justify-content: center;
+        }
+        .mission p, h2{
+          padding-top: 25px;
+        }
+        .vision:hover {
+            box-shadow: inset 1.5px 0px 1.5px 0px #2062AD;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .mission:hover {
+            box-shadow: inset 1.5px 0px 1.5px 0px #2062AD;
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+        .mv-container h1{
+            font: 'Poppins';
+            font-weight: 400%;
+            font-size: 65px;
+            line-height: 100%;
+            letter-spacing: 0%;
+        }
+        .mv-container h2{
+             font: 'Poppins';
+            font-weight: 400%;
+            font-size: 30px;
+            line-height: 100%;
+            letter-spacing: 0%;
+        }
+        .mv-container p{
+            font: 'Poppins';
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 100%;
+            letter-spacing: 0%;
+        }
+        .ms-txt p{
+            font-family: "Brush Script MT", cursive;
+            font-size: 25px;
+            width: 100%;
+            color: black;
+            margin-left: 0;
+            margin-right: 0;
+        }
+        .ms-txt p span{
+            color: #2062AD;
+        }
+        .blink {
+                animation: blinker 1.5s linear infinite;
+                color: #2062AD;
+                font-family: sans-serif;
+            }
+
+            @keyframes blinker {
+                50% {
+                    opacity: 0.25;
+                }
+            }
+            @media screen and (min-width:900px){
+                   .msnvs h1{
+            Font: 'Poppins';
+            Weight: 500;
+            Size:64px;
+            line-height: 100%;
+            Letter-spacing: 0%;
+            align-items: center;
+            text-align: center;
+        }
+
+
+        .msnvs h1 span{
+            color: #2062AD;
+        }
+        .msnvs .box{
+            Width:1280px;
+            Height:392px;
+            Top:2299px;
+            Left:80px;
+        }
+        
+        .mv-container {
+            display: flex;
+            width: 650;
+            height: 400;
+            top: 2299px;
+            left: 730px;
+
+        }
+        .mission, .vision {
+            flex: 1;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .mission {
+            background-color: #e2e0e0;
+        }
+        .vision {
+            background-color: #dbedff;
+        }
+        .mv-container h1{
+            font: 'Poppins';
+            font-weight: 400%;
+            font-size: 65px;
+            line-height: 100%;
+            letter-spacing: 0%;
+        }
+        .mv-container h2{
+             font: 'Poppins';
+            font-weight: 400%;
+            font-size: 30px;
+            line-height: 100%;
+            letter-spacing: 0%;
+        }
+        .mv-container p{
+            font: 'Poppins';
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 100%;
+            letter-spacing: 0%;
+        }
+        .ms-txt p{
+            font-family: "Brush Script MT", cursive;
+            font-size: 25px;
+            width: 100%;
+            color: black;
+            margin-left: 0;
+            margin-right: 0;
+        }
+        .ms-txt p span{
+            color: #2062AD;
+        }
+        .blink {
+                animation: blinker 1.5s linear infinite;
+                color: #2062AD;
+                font-family: sans-serif;
+            }
+
+            @keyframes blinker {
+                50% {
+                    opacity: 0.25;
+                }
+            }
+            }
+        @media screen and (max-width: 600px){
+               .msnvs h1{
+            Font: 'Poppins';
+            Weight: 500;
+            Size:64px;
+            line-height: 100%;
+            Letter-spacing: 0%;
+            align-items: center;
+            text-align: center;
+        }
+
+
+        .msnvs h1 span{
+            color: #2062AD;
+        }
+        .msnvs .box{
+            Width:1280px;
+            Height:392px;
+            Top:2299px;
+            Left:80px;
+        }
+        
+        .mv-container {
+            display: flex;
+            width: 650;
+            height: 400;
+            top: 2299px;
+            left: 730px;
+
+        }
+        .mission, .vision {
+            flex: 1;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .mission {
+            background-color: #e2e0e0;
+        }
+        .vision {
+            background-color: #dbedff;
+        }
+        .mv-container h1{
+            font: 'Poppins';
+            font-weight: 400%;
+            font-size: 65px;
+            line-height: 100%;
+            letter-spacing: 0%;
+        }
+        .mv-container h2{
+             font: 'Poppins';
+            font-weight: 400%;
+            font-size: 30px;
+            line-height: 100%;
+            letter-spacing: 0%;
+        }
+        .mv-container p{
+            font: 'Poppins';
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 100%;
+            letter-spacing: 0%;
+        }
+        .ms-txt p{
+            font-family: "Brush Script MT", cursive;
+            font-size: 25px;
+            width: 100%;
+            color: black;
+            margin-left: 0;
+            margin-right: 0;
+        }
+        .ms-txt p span{
+            color: #2062AD;
+        }
+        .blink {
+                animation: blinker 1.5s linear infinite;
+                color: #2062AD;
+                font-family: sans-serif;
+            }
+
+            @keyframes blinker {
+                50% {
+                    opacity: 0.25;
+                }
+            }
+          
+        }
+    .wrapper{
   background-color: #fff;
   box-shadow: 3px 3px 5px rgb(0,0,0,0.1);
   position: absolute;
@@ -477,3 +820,182 @@ nav .content .links{
 .sec3{
   width: 100%;
 }
+
+.site-footer {
+  background-color: #000000;
+  color: #ffffff;
+  padding: 50px 0 0;
+  font-size: 0.95rem;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  gap: 30px;
+}
+
+.footer-section {
+  flex: 1;
+  min-width: 250px;
+  margin-bottom: 30px;
+}
+
+.footer-heading {
+  color: #ffffff;
+  font-size: 1.25rem;
+  margin-bottom: 20px;
+  position: relative;
+  padding-bottom: 10px;
+}
+
+.footer-heading::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 60px;
+  height: 3px;
+  background-color: #2062AD;
+  border-radius: 2px;
+}
+
+.footer-section.about p {
+  margin-bottom: 20px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.social-links {
+  display: flex;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.social-links a {
+  color: #ffffff;
+  font-size: 1.2rem;
+  width: 40px;
+  height: 40px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.social-links a:hover {
+  background-color: #2062AD;
+  transform: translateY(-3px);
+}
+
+.quick-links ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.quick-links ul li {
+  margin-bottom: 10px;
+}
+
+.quick-links ul li a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+}
+
+.quick-links ul li a:hover {
+  color: #2062AD;
+  transform: translateX(5px);
+}
+
+.contact-info p {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.contact-info p i {
+  margin-right: 10px;
+  color: #2062AD;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+}
+
+.newsletter p {
+  margin-bottom: 20px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 5px;
+}
+
+.newsletter-form input[type="email"] {
+  flex-grow: 1;
+  padding: 10px 15px;
+  border: 1px solid #333;
+  border-radius: 5px;
+  background-color: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.newsletter-form input[type="email"]::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.newsletter-form input[type="email"]:focus {
+  border-color: #2062AD;
+}
+
+.newsletter-form button {
+  padding: 10px 20px;
+  background-color: #2062AD;
+  color: #000000;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.newsletter-form button:hover {
+  background-color: #2062AD;
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  border-top: 1px solid #333;
+  padding: 20px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-legal-links {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.footer-legal-links a {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-legal-links a:hover {
+  color: #2062AD;
+}
+
