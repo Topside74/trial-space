@@ -861,6 +861,89 @@ marquee {
     gap: 1rem;
     padding: 1rem 0.5rem;
   }
+  .sectwosl {
+    height: auto;
+    min-height: 300px;
+    flex-direction: column;
+    padding: 0 0 2rem 0;
+  }
+  .slider-container {
+    height: 320px;
+  }
+  .slide {
+    min-width: 100vw;
+    height: 320px;
+  }
+  .slide img {
+    height: 320px;
+  }
+  .slico {
+    top: 10px;
+    padding: 0 0 2rem 0;
+  }
+  .carousel {
+    gap: 16px;
+    padding: 30px 0 60px;
+  }
+  .frame {
+    width: 90vw;
+    height: 180px;
+  }
+  .frame-content {
+    width: 90vw;
+    top: 10px;
+  }
+  .msvsmainco {
+    width: 100vw;
+    padding: 0 2vw;
+  }
+  .vc, .vcco {
+    flex-direction: column;
+    height: auto;
+    min-height: 300px;
+    gap: 20px;
+    padding: 1rem 0;
+  }
+  .vcleft, .vcright {
+    width: 100%;
+    max-width: 98vw;
+    text-align: center;
+  }
+  .vcleft img {
+    width: 80vw;
+    height: auto;
+    max-width: 300px;
+  }
+  .vcright {
+    width: 100%;
+    max-width: 98vw;
+    padding: 0 1vw;
+  }
+  .oujourney {
+    flex-direction: column;
+    height: auto;
+    padding: 1rem 0;
+  }
+  .innjoleft, .innjoright {
+    width: 100%;
+    max-width: 98vw;
+    left: 0;
+    padding: 0 1vw;
+  }
+  .innjoright img {
+    width: 90vw;
+    height: auto;
+    max-width: 350px;
+    top: 0;
+    left: 0;
+    float: none;
+    display: block;
+    margin: 0 auto;
+  }
+  .innjodown p {
+    width: 100%;
+    height: auto;
+  }
 }
 
 @media (max-width: 700px) {
@@ -912,54 +995,81 @@ marquee {
     width: 30px;
     height: 2px;
   }
-}
-
-@media (max-width: 600px) {
+  .sectwosl {
+    height: auto;
+    min-height: 180px;
+    padding: 0 0 1rem 0;
+  }
   .slider-container {
-    height: 220px;
+    height: 160px;
   }
   .slide {
     min-width: 100vw;
-    height: 220px;
+    height: 160px;
   }
   .slide img {
-    height: 220px;
+    height: 160px;
   }
-  .btn {
-    font-size: 1.2rem;
-    padding: 6px 12px;
+  .slico {
+    padding: 0 0 1rem 0;
   }
-  .mobile-logo {
-    height: 36px;
+  .carousel {
+    gap: 8px;
+    padding: 10px 0 30px;
   }
-  .mobile-nav-header {
-    padding: 6px 8px;
+  .frame {
+    width: 95vw;
+    height: 100px;
   }
-  .mobile-nav-menu a, .mobile-nav-menu button.donate {
-    padding: 10px 8px;
-    font-size: 1rem;
+  .frame-content {
+    width: 95vw;
+    top: 5px;
+  }
+  .msvsmainco {
+    padding: 0 1vw;
+  }
+  .vc, .vcco {
+    gap: 10px;
+    padding: 0.5rem 0;
+  }
+  .vcleft img {
+    width: 90vw;
+    max-width: 220px;
+  }
+  .oujourney {
+    padding: 0.5rem 0;
+  }
+  .innjoright img {
+    width: 95vw;
+    max-width: 220px;
   }
 }
 
 @media (max-width: 500px) {
-  .main-content h1 {
-    font-size: 1.1rem;
+  .sectwosl, .slico, .msvsmainco, .vc, .vcco, .oujourney {
+    padding: 0 0.5vw;
   }
-  .main-content p {
-    font-size: 0.9rem;
+  .slider-container {
+    height: 100px;
   }
-  .read-more-btn {
-    font-size: 0.95rem;
-    padding: 8px 12px;
+  .slide {
+    min-width: 100vw;
+    height: 100px;
   }
-  .divider {
-    width: 20px;
-    height: 2px;
+  .slide img {
+    height: 100px;
   }
-  .news-date {
-    width: 40px;
-    height: 40px;
-    font-size: 0.9rem;
+  .frame {
+    width: 98vw;
+    height: 60px;
+  }
+  .frame-content {
+    width: 98vw;
+    top: 2px;
+  }
+  .vcleft img, .innjoright img {
+    width: 98vw;
+    max-width: 120px;
   }
 }
 
