@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AHIA - Admission 2025</title>
+    <style>
+        :root {
+            --primary-color: #004d99;
+            --secondary-color: #003366;
+            --accent-color: #0077cc;
+            --light-bg: #f0f5ff;
+            --text-dark: #333;
+            --text-light: #fff;
+            --border-radius: 8px;
+            --box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            --transition: all 0.3s ease;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--light-bg);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: var(--text-light);
+            text-align: center;
+            padding: 30px 20px;
+            box-shadow: var(--box-shadow);
+        }
+        
+        header h1 {
+            font-size: 2rem;
+            letter-spacing: 0.5px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        nav {
+            background-color: var(--secondary-color);
+            padding: 15px 10px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: 600;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: var(--transition);
+        }
+        
+        nav a:hover {
+            background-color: rgba(255,255,255,0.2);
+            transform: translateY(-2px);
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 25px;
+            background-color: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--box-shadow);
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: var(--border-radius);
+            background-color: #fff;
+            transition: var(--transition);
+        }
+        
+        .section:hover {
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            color: var(--primary-color);
+            border-bottom: 3px solid var(--accent-color);
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+        }
+        
+        .section h3 {
+            color: var(--secondary-color);
+            margin: 20px 0 10px;
+            font-size: 1.4rem;
+        }
+        
+        ul, ol {
+            padding-left: 20px;
+            margin-bottom: 15px;
+        }
+        
+        li {
+            margin-bottom: 8px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--secondary-color);
+        }
+        
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+            font-family: inherit;
+        }
+        
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--accent-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0,77,153,0.2);
+        }
+        
+        .form-group button {
+            background: linear-gradient(135deg, var(--accent-color), var(--primary-color));
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            transition: var(--transition);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .form-group button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.15);
+        }
+        
+        .form-group button:active {
+            transform: translateY(1px);
+        }
+        
+        .notice {
+            color: #d9534f;
+            font-style: italic;
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #ffebee;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            border-left: 4px solid #d9534f;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            position: relative;
+            width: 100%;
+            margin-top: 50px;
+        }
+        
+        footer p {
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+                margin: 15px;
+            }
+            
+            header h1 {
+                font-size: 1.5rem;
+            }
+            
+            nav {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav a {
+                margin: 5px;
+                padding: 6px 12px;
+            }
+            
+            .section {
+                padding: 15px;
+            }
+            
+            .form-group button {
+                width: 100%;
+            }
+        }
+        
+        /* Additional styling for better user experience */
+        select {
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: right 1rem center;
+            background-size: 1em;
+            padding-right: 2.5rem;
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+        
+        /* Highlight important information */
+        .highlight {
+            background-color: rgba(0,77,153,0.1);
+            padding: 15px;
+            border-radius: var(--border-radius);
+            margin: 15px 0;
+            border-left: 4px solid var(--accent-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Aligarh Higher Institutions Association (AHIA) - Admission 2025</h1>
+    </header>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="#admission">Admission</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <div class="container">
+        <div class="section" id="admission">
+            <h2>Admission Information</h2>
+            <p>Welcome to the AHIA Admission Portal for the 2025-26 academic session. We offer a range of programs to empower students with quality education. Apply now to secure your seat!</p>
+
+            <div class="highlight">
+                <h3>Eligibility Criteria</h3>
+                <ul>
+                    <li>For Undergraduate Programs: Minimum 50% marks in 10+2 from a recognized board.</li>
+                    <li>For Postgraduate Programs: Minimum 55% marks in a relevant Bachelor's degree.</li>
+                    <li>Entrance Exam: Candidates must qualify AHIA Entrance Test (AHIAET) or equivalent (e.g., CUET).</li>
+                    <li>Age Limit: Below 25 years as of July 1, 2025.</li>
+                </ul>
+            </div>
+
+            <h3>Important Dates</h3>
+            <ul>
+                <li>Application Start Date: June 1, 2025</li>
+                <li>Last Date to Apply: July 15, 2025 (02:15 PM IST)</li>
+                <li>Entrance Exam Date: August 10, 2025</li>
+                <li>Result Declaration: August 25, 2025</li>
+                <li>Counseling: September 1-5, 2025</li>
+            </ul>
+
+            <h3>Application Process</h3>
+            <ol>
+                <li>Register online at the AHIA official website.</li>
+                <li>Fill out the application form with personal and academic details.</li>
+                <li>Upload scanned copies of required documents (e.g., mark sheets, ID proof).</li>
+                <li>Pay the application fee of INR 1,000 via online payment.</li>
+                <li>Submit the form and download the confirmation for future reference.</li>
+            </ol>
+        </div>
+
+        <div class="section">
+            <h2>Apply Now</h2>
+            <form id="admissionForm">
+                <div class="form-group">
+                    <label for="name">Full Name:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="course">Courses:</label>
+                    <select id="course" name="course" required>
+                        <option value="">Select Course</option>
+                        <option value="hudawi">Hudawi</option>
+                        <option value="zahrawiya">Zahrawiya</option>
+                        <option value="hifz">Hifz</option>
+                        <option value="mahdiya">Mahdiya</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="qualification">Last Qualification Details:</label>
+                    <textarea id="qualification" name="qualification" rows="4" required placeholder="Enter your details">Completed classes 1 to 5th on school and 1 to 5th on madrasa</textarea>
+                </div>
+                <div class="form-group">
+                    <button type="submit">Submit Application</button>
+                </div>
+            </form>
+            <p class="notice">Note:  Al Hidaya Islamic Academy is exclusively dedicated to the Hudawi course.</p>
+        </div>
+    </div>
+    <footer>
+        <p>© 2025 Aligarh Higher Institutions Association. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Improved form submission with validation
+        document.getElementById("admissionForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            
+            // Basic validation
+            const name = document.getElementById("name").value.trim();
+            const email = document.getElementById("email").value.trim();
+            const course = document.getElementById("course").value;
+            const qualification = document.getElementById("qualification").value.trim();
+            
+            if (name.length < 3) {
+                alert("Please enter your full name (at least 3 characters).");
+                return;
+            }
+            
+            if (!email.includes("@") || !email.includes(".")) {
+                alert("Please enter a valid email address.");
+                return;
+            }
+            
+            if (!course) {
+                alert("Please select a course.");
+                return;
+            }
+            
+            if (qualification.length < 10) {
+                alert("Please provide detailed qualification information.");
+                return;
+            }
+            
+            // If validation passes
+            alert("Application submitted successfully! Please check your email for confirmation.");
+            
+            // In a real application, you would submit to a server here
+            // form.submit();
+        });
+    </script>
+</body>
+</html>
