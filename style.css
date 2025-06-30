@@ -1119,3 +1119,80 @@ marquee {
     font-size: 1rem;
   }
 }
+
+/* Responsive Navigation */
+.mobile-nav {
+  display: none;
+}
+.desktop-nav {
+  display: flex;
+}
+@media (max-width: 900px) {
+  .desktop-nav {
+    display: none !important;
+  }
+  .mobile-nav {
+    display: block;
+    width: 100%;
+    background: #2062AD;
+    position: relative;
+    z-index: 2000;
+  }
+  .mobile-nav-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+  }
+  .mobile-logo {
+    height: 50px;
+    width: auto;
+  }
+  #mobile-nav-toggle {
+    background: none;
+    border: none;
+    color: #fff;
+    font-size: 2rem;
+    cursor: pointer;
+  }
+  .mobile-nav-menu {
+    display: none;
+    flex-direction: column;
+    background: #fff;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    top: 60px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    z-index: 2001;
+    padding: 0 0 16px 0;
+  }
+  .mobile-nav-menu.open {
+    display: flex;
+  }
+  .mobile-nav-menu a, .mobile-nav-menu button.donate {
+    color: #2062AD;
+    padding: 16px;
+    font-size: 1.1rem;
+    border-bottom: 1px solid #eee;
+    background: none;
+    text-align: left;
+    width: 100%;
+    display: block;
+    font-weight: 500;
+  }
+  .mobile-nav-menu a:last-child {
+    border-bottom: none;
+  }
+  .mobile-nav-menu a i {
+    margin-right: 8px;
+  }
+  .mobile-nav-menu button.donate {
+    background: #2062AD;
+    color: #fff;
+    border-radius: 20px;
+    margin: 8px 0;
+    width: 90%;
+    margin-left: 5%;
+  }
+}

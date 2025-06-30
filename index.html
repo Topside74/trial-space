@@ -13,7 +13,7 @@
   </button>
     <div class="secone">
         <header>
-            <div class="topone">
+            <div class="topone desktop-nav">
 <div class="leftnav" >
     <a href="">Faculty & Staff</a>
     <a href="">Students</a>
@@ -72,7 +72,7 @@
 </div>
 
 
-            <div class="toptwo">
+            <div class="toptwo desktop-nav">
 <div class="rinavtw">
     <a href="">Admission</a>
     <a href="">Exam</a>
@@ -92,6 +92,28 @@
 
 </div>
             </div>
+            <!-- Mobile Nav -->
+            <nav class="mobile-nav">
+                <div class="mobile-nav-header">
+                    <img src="./image.png" alt="Logo" class="mobile-logo">
+                    <button id="mobile-nav-toggle" aria-label="Open navigation"><i class="fas fa-bars"></i></button>
+                </div>
+                <div id="mobile-nav-menu" class="mobile-nav-menu">
+                    <a href="">Faculty & Staff</a>
+                    <a href="">Students</a>
+                    <a href="">Check Status</a>
+                    <a href="https://www.youtube.com/@hudaahia"><i class="fa-brands fa-youtube"></i> YouTube</a>
+                    <a href="https://www.instagram.com/huda_ahia_/"><i class="fa-brands fa-instagram"></i> Instagram</a>
+                    <a href="https://www.facebook.com/249887548739845"><i class="fa-brands fa-facebook"></i> Facebook</a>
+                    <a href=""><button class="donate">Donate us</button></a>
+                    <a href="">Admission</a>
+                    <a href="">Exam</a>
+                    <a href="">Contact us</a>
+                    <a href="">Home</a>
+                    <a href="./ABOUT.HTML">About</a>
+                    <a href="">Academic</a>
+                </div>
+            </nav>
         </header>
     </div>
 
@@ -598,6 +620,17 @@
     });
 
     startAutoSlide();
+
+    // Mobile nav toggle
+    const mobileNavToggle = document.getElementById('mobile-nav-toggle');
+    const mobileNavMenu = document.getElementById('mobile-nav-menu');
+    if (mobileNavToggle && mobileNavMenu) {
+        mobileNavToggle.addEventListener('click', function() {
+            mobileNavMenu.classList.toggle('open');
+            this.querySelector('i').classList.toggle('fa-bars');
+            this.querySelector('i').classList.toggle('fa-times');
+        });
+    }
     </script>
 
    
