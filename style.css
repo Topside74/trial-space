@@ -76,6 +76,8 @@ background-color: #2062AD;
    color: #fff;
  }
 
+
+
  .rifhtnav{
    display: flex;
    gap: 15px;
@@ -1104,7 +1106,7 @@ marquee {
 
      footer {
       background-color: #000000;
-      padding: 60px 20px 80px;
+      padding: 6px 20px 8px;
       display: flex;
       flex-wrap: wrap;
       justify-content: space-between;
