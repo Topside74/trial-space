@@ -1086,6 +1086,11 @@ marquee {
   .mv-container{
     gap: 20px
   }
+   .logo{
+    height: 150px;
+    position: relative;
+    top: -40px;
+  }
 
   .ms-txt{
     margin-top: -280px;
