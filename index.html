@@ -125,17 +125,21 @@
 
 
 <div class="sectwosl">
-  <div class="slider-container">
-    <div class="slides" id="slides">
-      <div class="slide"><img src="https://dhiu.in/uploadpics/Banner_1751082667.jpg" alt="Slide 1"></div>
-      <div class="slide"><img src="./images/sun hid org.png" alt="Slide 2"></div>
-      <div class="slide"><img src="./image copy.png" alt="Slide 3"></div>
-      <div class="slide"><img src="ss.png" alt="slide 4"></div>
+<div class="slider-container">
+    <div class="slides">
+      <img src="https://www.ahia.in/images/sun%20hid%20org.png" alt="Slide 1">
+      <img src="https://dhiu.in/uploadpics/Banner_1751082667.jpg" alt="Slide 2">
+      <img src="https://www.ahia.in/image%20copy.png" alt="Slide 3">
+      <img src="https://www.ahia.in/ss.png" alt="Slide 3">
+
     </div>
-    <button class="btn prev" onclick="prevSlide()">❮</button>
-    <button class="btn next" onclick="nextSlide()">❯</button>
+
+    <button class="nav prev">&#10094;</button>
+    <button class="nav next">&#10095;</button>
+
+    <div class="dots"></div>
   </div>
-  
+
 
 </div>
   <main>
@@ -495,31 +499,46 @@
             }
         });
 
-         const slides = document.getElementById('slides');
-    const totalSlides = slides.children.length;
+
+        //image slide
+
+         const slides = document.querySelector('.slides');
+    const images = document.querySelectorAll('.slides img');
+    const dotsContainer = document.querySelector('.dots');
     let currentIndex = 0;
 
+    // Create dots dynamically
+    images.forEach((_, i) => {
+      const dot = document.createElement('span');
+      dot.classList.add('dot');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', () => showSlide(i));
+      dotsContainer.appendChild(dot);
+    });
+    const dots = document.querySelectorAll('.dot');
+
     function showSlide(index) {
-      if (index >= totalSlides) currentIndex = 0;
-      else if (index < 0) currentIndex = totalSlides - 1;
-      else currentIndex = index;
-      slides.style.transform = `translateX(-${1349 * currentIndex}px)`;
+      if (index < 0) index = images.length - 1;
+      if (index >= images.length) index = 0;
+      slides.style.transform = `translateX(${-index * 100}%)`;
+      dots.forEach(dot => dot.classList.remove('active'));
+      dots[index].classList.add('active');
+      currentIndex = index;
     }
 
-    function nextSlide() {
-      showSlide(currentIndex + 1);
-    }
+    document.querySelector('.prev').addEventListener('click', () => showSlide(currentIndex - 1));
+    document.querySelector('.next').addEventListener('click', () => showSlide(currentIndex + 1));
 
-    function prevSlide() {
-      showSlide(currentIndex - 1);
-    }
+    // Auto slide
+    setInterval(() => showSlide(currentIndex + 1), 5000);
 
-    // Auto-slide every 5 seconds
-    setInterval(() => {
-      nextSlide();
-    }, 5000);
 
-    
+
+
+
+
+
+//course
 
     const carousel = document.getElementById('carousel');
 
