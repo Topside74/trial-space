@@ -668,6 +668,7 @@ background-color: #2062AD;
       display: block;
       margin: 0 auto;
       width: 100%;
+
     }
 
     .carimce {
@@ -679,6 +680,7 @@ background-color: #2062AD;
       overflow: hidden;
       border-radius: 20px;
       height: auto;
+
     }
 
     .activity-card {
@@ -686,6 +688,7 @@ background-color: #2062AD;
       width: 400%;
       height: 100%;
       transition: transform 1s ease;
+
     }
 
     .activity-slide {
