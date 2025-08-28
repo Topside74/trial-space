@@ -1128,9 +1128,9 @@ marquee {
     gap: 20px
   }
    .logo{
-    height: 150px;
+    height: 120px;
     position: relative;
-    top: -40px;
+    top: -20px;
   }
 
   .ms-txt{
