@@ -1651,7 +1651,7 @@ top: 50px;
   .mobile-nav {
     display: block;
     width: 100%;
-    background: #2062AD;
+    background: #0056b3;
     position: relative;
     z-index: 2000;
   }
@@ -1715,13 +1715,15 @@ top: 50px;
 }
 
 .mobnav {
-      background: #2062AD;
+      background: #fff;
+      box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2);
       height: 80px;
       width: 100%;
       position: relative;
       z-index: 100;
       display: none;
     }
+
     label.logo {
       color: white;
       font-size: 25px;
