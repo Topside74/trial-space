@@ -623,6 +623,7 @@ background-color: #2062AD;
     .innjodown p{
       position: relative;
       top: 30px;
+      padding: 12px;
       width: 796px;
       height: 146px;
 
@@ -1167,6 +1168,7 @@ marquee {
  .innjoup{
 position: relative;
 top: 50px;
+padding: 0 0 0 12px;
  }
 
  .oujourney{
@@ -1181,7 +1183,7 @@ top: 50px;
  }
 
   .textmisvisco p{
-    font-size: 13px;
+    font-size: 12.8px;
   }
   .frame-content {
     width: 95vw;
@@ -1624,6 +1626,7 @@ top: 50px;
 @media (max-width: 700px) {
   .secslidedown {
     padding: 30px 0 20px 0;
+    margin-bottom: -200px;
     min-height: 400px;
   }
   .carimce {
