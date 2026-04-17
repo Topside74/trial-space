@@ -1215,7 +1215,8 @@ top: 50px;
   }
   .site-footer{
     position: relative;
-    top: -200px;
+    top: 0;
+
     
   }
 
@@ -1320,7 +1321,7 @@ top: 50px;
 .site-footer {
   background-color: #000000;
   color: #ffffff;
-  padding: 50px 0 0;
+  padding: 50px 0 50px 0;
   font-size: 0.95rem;
 }
 
@@ -1712,6 +1713,8 @@ top: 50px;
     width: 90%;
     margin-left: 5%;
   }
+
+
 }
 
 .mobnav {
@@ -1839,4 +1842,20 @@ top: 50px;
       .topone,.toptwo{
         display: none;
       }
+      .read-more-button{
+        padding: 7px 14px;
+        margin-top: -8px;
+        font-size: 14px;
+
+  }
+
+  
+  .stdact{
+    min-height: 0;
+  }
+
+
+  .footer-bottom{
+
+  }
     }
