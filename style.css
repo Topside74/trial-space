@@ -199,10 +199,12 @@ background-color: #2062AD;
 
     .prev {
       left: 15px;
+      padding: 0 15px;
     }
 
     .next {
       right: 15px;
+      padding: 0 15px;
     }
 
     /* Dots */
